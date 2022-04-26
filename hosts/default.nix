@@ -18,6 +18,25 @@
             }
         ];
     };
+    e105-laptop = lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit user inputs; };
+        user = "royell";
+        modules = [
+            ./laptop
+            ./configuration.nix
+            home-manager.nixosModules.home-manager {
+                home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    extraSpecialArgs = { inherit user; };
+                    users.${user} = {
+                        imports = [(import ./home.nix)];
+                    };
+                };
+            }
+        ];
+    };
     vm = lib.nixosSystem {
         inherit system;
         specialArgs = { inherit user inputs; };
