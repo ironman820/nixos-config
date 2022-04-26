@@ -23,7 +23,7 @@
         specialArgs = { inherit user inputs; };
         user = "royell";
         modules = [
-            ./laptop
+            ./work-laptop
             ./configuration.nix
             home-manager.nixosModules.home-manager {
                 home-manager = {
