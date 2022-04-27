@@ -5,36 +5,22 @@
         ./hardware-configuration.nix
     ];
 
-    boot = {
-        kernelPackages = pkgs.linuxPackages_latest;
-
-        loader = {
-            efi = {
-                canTouchEfiVariables = true;
-                efiSysMountPoint = "/boot";
-            };
-            grub = {
-                enable = true;
-                version = 2;
-                devices = [ "nodev" ];
-                efiSupport = true;
-            };
-            timeout = 5;
-        };
+    boot.loader = {
+        efi.canTouchEfiVariables = true;
+        systemd-boot.enable = true;
+        timeout = 2;
     };
 
     environment.systemPackages = with pkgs; [
         # audiorelay
         b43FirmwareCutter
         blueberry
-        calibre
         # cups-pdf
-        cura
-        docker-compose
+        ddrescue
+        ddrescueview
         nmap
         poetry
         sqlitebrowser
-        tvnamer
         ventoy-bin
         virt-viewer
     ];
@@ -43,8 +29,6 @@
 
     networking = {
         hostName = "e105-laptop";
-        ddrescue
-        ddrescueview
         enableB43Firmware = true;
         networkmanager.enableStrongSwan = true;
     };
@@ -56,11 +40,23 @@
             drivers = with pkgs; [
                 hplipWithPlugin
             ];
-            enabled = true;
-        };
-        xserver.synaptics = {
             enable = true;
-            twoFingerScroll = true;
         };
+        xserver.libinput = {
+            enable = true;
+            touchpad.scrollMethod = "twofinger";
+        };
+    };
+
+    users.users.royell = {
+        isNormalUser = true;
+        initialPassword = "Password!";
+        extraGroups = [
+            "royell"
+            "networkmanager"
+            "pipewire"
+            "wheel"
+        ];
+        shell = pkgs.zsh;
     };
 }

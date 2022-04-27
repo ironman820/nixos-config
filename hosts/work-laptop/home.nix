@@ -1,5 +1,8 @@
 { config, lib, pkgs, user, ... }:
 
 {
-    # imports = [(import ../../modules/desktop/home-novm.nix)];
+    home.file.".ssh" = {
+        source = config.lib.file.mkOutOfStoreSymlink ../../secrets/work-laptop-ssh;
+        recursive = true;
+    };
 }

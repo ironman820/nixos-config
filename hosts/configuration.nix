@@ -98,7 +98,6 @@
     firewall.enable = false;
     networkmanager.enable = true;
     useDHCP = false;
-    # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   };
 
   # Set your time zone.
@@ -158,29 +157,9 @@
     # restic.backups = {
 
     # };
-    xserver.libinput.enable = true;
   }; 
 
   sound.mediaKeys.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.${user} = {
-    isNormalUser = true;
-    initialPassword = "Password!";
-    extraGroups = [
-      "${user}"
-      "networkmanager"
-      "pipewire"
-      "wheel"
-    ];
-    shell = pkgs.zsh;
-  };
-
-
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
