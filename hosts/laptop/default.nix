@@ -1,8 +1,8 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
     imports = [
-        ./hardware-configuration.nix
+        ../work-laptop/hardware-configuration.nix
     ];
 
     boot = {
@@ -30,6 +30,8 @@
         calibre
         # cups-pdf
         cura
+        ddrescue
+        ddrescueview
         docker-compose
         nmap
         poetry
@@ -43,8 +45,6 @@
 
     networking = {
         hostName = "ironman-laptop";
-        ddrescue
-        ddrescueview
         enableB43Firmware = true;
         networkmanager.enableStrongSwan = true;
     };
@@ -56,19 +56,19 @@
             drivers = with pkgs; [
                 hplipWithPlugin
             ];
-            enabled = true;
-        };
-        xserver.synaptics = {
             enable = true;
-            twoFingerScroll = true;
+        };
+        xserver.libinput = {
+            enable = true;
+            touchpad.scrollMethod = "twofinger";
         };
     };
 
-    users.users.${user} = {
-        extraGroups = [
-        "docker"
-        ];
-    };
+    # users.users.${user} = {
+    #     extraGroups = [
+    #     "docker"
+    #     ];
+    # };
 
     virtualisation.docker.enable = true;
 }

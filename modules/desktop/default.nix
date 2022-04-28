@@ -1,4 +1,4 @@
-{config, lib, pkgs, imputs, user, ... }:
+{config, lib, pkgs, imputs, ... }:
 
 {
     environment.systemPackages = [ pkgs.xfce.xfce4_whiskermenu_plugin ];

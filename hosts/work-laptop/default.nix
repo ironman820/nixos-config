@@ -1,13 +1,25 @@
-{ config, pkgs, user, ... }:
+{ config, pkgs, ... }:
 
 {
     imports = [
         ./hardware-configuration.nix
+        ../../users/royell
     ];
+
+    # age.secrets."royell.rsa" = {
+    #     file = ../../secrets/home/royell/rsa.age;
+    #     group = "users";
+    #     owner = "royell";
+    #     path = "/home/royell/.ssh/id_rsa";
+    #     symlink = false;
+    # };
 
     boot.loader = {
         efi.canTouchEfiVariables = true;
-        systemd-boot.enable = true;
+        systemd-boot = {
+            configurationLimit = 10;
+            enable = true;
+        };
         timeout = 2;
     };
 
@@ -46,22 +58,15 @@
             ];
             enable = true;
         };
-        xserver.libinput = {
-            enable = true;
-            touchpad.scrollMethod = "twofinger";
+        xserver = {
+            displayManager.autoLogin = {
+                enable = true;
+                user = "royell";
+            };
+            libinput = {
+                enable = true;
+                touchpad.scrollMethod = "twofinger";
+            };
         };
-    };
-
-    users.users.royell = {
-        isNormalUser = true;
-        initialPassword = "Password!";
-        extraGroups = [
-            "royell"
-            "networkmanager"
-            "pipewire"
-            "wheel"
-            "autologin"
-        ];
-        shell = pkgs.zsh;
     };
 }

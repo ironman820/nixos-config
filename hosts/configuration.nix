@@ -2,30 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, inputs, user, ... }:
+# { config, lib, pkgs, inputs, agenix, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   # pkgs.overlays = [ inputs.nur.overlay ];
   imports =
     [
       ../modules/desktop
+      ../modules/zsh
+      # ../modules/agenix.nix
     ];
 
   environment = {
-    shellAliases = {
-      cat = "bat";
-      df = "df -h";
-      ducks = "du -chs * | sort -rh | head -11";
-      l = "exa -lah";
-      la = "exa -lah";
-      ll = "exa -lah";
-      ls = "exa -a";
-      lsa = "exa -lah";
-      md = "mkdir -p";
-      rd = "rmdir";
-      htop = "glances --percpu";
-    };
-
     systemPackages = with pkgs; [
       adoptopenjdk-icedtea-web
       bat
@@ -54,7 +43,6 @@
       tldr
       ulauncher
       variety
-      vim
       wget
       vscode
     ];
@@ -79,8 +67,9 @@
     '';
     gc = {
       automatic = true;
-      dates = "weekly";
+      dates = "daily";
       options = "--delete-older-than 7d";
+      randomizedDelaySec = "1mins";
     };
     package = pkgs.nixFlakes;
     registry.nixpkgs.flake = inputs.nixpkgs;
@@ -113,6 +102,7 @@
     git = {
       config = {
         core.editor = "code --wait";
+        pull.rebase = false;
         user = {
           name = "Nicholas Eastman";
           email = "29488820+ironman820@users.noreply.github.com";
@@ -122,19 +112,7 @@
     };
     java.enable = true;
     mtr.enable = true;
-    thefuck = {
-      enable = true;
-      alias = "tf";
-    };
-    zsh = {
-      enable = true;
-      shellInit = ''
-        eval "$(starship init zsh)"
-      '';
-      ohMyZsh = {
-        enable = true;
-      };
-    };
+    vim.defaultEditor = true;
   };
   
   security = {
