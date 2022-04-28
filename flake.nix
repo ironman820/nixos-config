@@ -26,31 +26,31 @@
             lib = nixpkgs.lib;
 
         in {
-            homeManagerConfigurations = {
+            hmConfig = {
                 ironman = home-manager.lib.homeManagerConfiguration {
-                    inherit system packages;
+                    inherit system pkgs;
                     username = "ironman";
                     homeDirectory = "/home/ironman";
-                    configuration = {
-                        imports = [(import ./hosts/home.nix)];
-                    };
-                    stateVersion = "21.11";
+                    configuration = [(import ./hosts/home.nix)];
+                    # stateVersion = "21.11";
                 };
                 royell = home-manager.lib.homeManagerConfiguration {
-                    inherit system packages;
+                    inherit system pkgs;
                     username = "royell";
                     homeDirectory = "/home/royell";
                     configuration = {
-                        imports = [(import ./hosts/home.nix)] ++
-                            [(import ./hosts/work-laptop/home.nix)];
+                        imports = [
+                            ./hosts/home.nix
+                            ./hosts/work-laptop/home.nix
+                        ];
                     };
-                    stateVersion = "21.11";
+                    # stateVersion = "21.11";
                 };
             };
             nixosConfigurations = (
                 import ./hosts {
                     inherit (nixpkgs) lib;
-                    inherit inputs user system home-manager;
+                    inherit inputs user system pkgs home-manager;
                 }
             );
         };

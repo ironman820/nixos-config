@@ -15,12 +15,33 @@
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixroot";
-      fsType = "ext4";
+      fsType = "btrfs";
+      options = [ "subvol=@" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
     };
+
+  boot.initrd.luks.devices."nixroot".device = "/dev/disk/by-uuid/96799e6f-7178-43d7-9ca2-12d09ad21c3f";
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-label/nixroot";
+      fsType = "btrfs";
+      options = [ "subvol=@home" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
+    };
+
+  fileSystems."/var/cache" =
+    { device = "/dev/disk/by-label/nixroot";
+      fsType = "btrfs";
+      options = [ "subvol=@var-cache" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
+    };
+
+  fileSystems."/var/log" =
+    { device = "/dev/disk/by-label/nixroot";
+      fsType = "btrfs";
+      options = [ "subvol=@var-log" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
     };
 
   swapDevices =

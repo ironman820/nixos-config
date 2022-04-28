@@ -1,5 +1,6 @@
 #!/bin/sh
 pushd ~/.dotfiles
 sudo nixos-rebuild switch --flake .#
-home-manager switch --flake '.#$(USER)'
+nix build ".#hmConfig.$USER.activationPackage"
+result/activate
 popd

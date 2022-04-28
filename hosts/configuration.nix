@@ -39,7 +39,6 @@
       glances
       gnome.file-roller
       google-chrome
-      htop
       libsForQt5.okular
       libsForQt5.qtstyleplugin-kvantum
       libreoffice
@@ -65,7 +64,6 @@
     enableDefaultFonts = true;
     fonts = with pkgs; [
       corefonts
-      # fira-code
       nerdfonts
       open-sans
     ];
@@ -114,11 +112,11 @@
     dconf.enable = true;
     git = {
       config = {
+        core.editor = "code --wait";
         user = {
           name = "Nicholas Eastman";
           email = "29488820+ironman820@users.noreply.github.com";
         };
-        core.editor = "code --wait";
       };
       enable = true;
     };

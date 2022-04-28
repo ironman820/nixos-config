@@ -33,6 +33,10 @@
         networkmanager.enableStrongSwan = true;
     };
 
+    programs.git.config.safe.directory = [
+        "/home/royell/.dotfiles"
+    ];
+
     services = {
         auto-cpufreq.enable = true;
         blueman.enable = true;
@@ -56,6 +60,7 @@
             "networkmanager"
             "pipewire"
             "wheel"
+            "autologin"
         ];
         shell = pkgs.zsh;
     };
