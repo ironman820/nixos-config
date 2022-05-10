@@ -10,6 +10,7 @@
   imports =
     [
       ../modules/desktop
+      ../modules/git.nix
       ../modules/zsh
       # ../modules/agenix.nix
     ];
@@ -99,17 +100,6 @@
 
   programs = {
     dconf.enable = true;
-    git = {
-      config = {
-        core.editor = "code --wait";
-        pull.rebase = false;
-        user = {
-          name = "Nicholas Eastman";
-          email = "29488820+ironman820@users.noreply.github.com";
-        };
-      };
-      enable = true;
-    };
     java.enable = true;
     mtr.enable = true;
     vim.defaultEditor = true;

@@ -31,7 +31,6 @@
         ddrescue
         ddrescueview
         nmap
-        poetry
         sqlitebrowser
         ventoy-bin
         virt-viewer
@@ -45,10 +44,6 @@
         networkmanager.enableStrongSwan = true;
     };
 
-    programs.git.config.safe.directory = [
-        "/home/royell/.dotfiles"
-    ];
-
     services = {
         auto-cpufreq.enable = true;
         blueman.enable = true;
@@ -59,10 +54,6 @@
             enable = true;
         };
         xserver = {
-            displayManager.autoLogin = {
-                enable = true;
-                user = "royell";
-            };
             libinput = {
                 enable = true;
                 touchpad.scrollMethod = "twofinger";

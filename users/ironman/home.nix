@@ -16,9 +16,6 @@
   # changes in each release.
   home.stateVersion = "21.11";
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
   programs.gpg.enable = true;
   services.gpg-agent = {
     enable = true;
@@ -28,12 +25,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
-    vscode
-    variety
     python310
-    git
-    git-crypt
-    gnupg
     pinentry-gtk2
     ulauncher
   ];
