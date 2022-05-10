@@ -13,7 +13,7 @@
         };
     };
 
-    file.".config/xfce4" = {
+    home.file.".config/xfce4" = {
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/xfce4";
         recursive = true;
     };
