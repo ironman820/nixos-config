@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
     gtk = {
@@ -12,4 +12,10 @@
             package = pkgs.tela-icon-theme;
         };
     };
+
+    file.".config/xfce4" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/config/xfce4";
+        recursive = true;
+    };
+    
 }
