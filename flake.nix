@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-21.11";
+        nixunstable.url = "nixpkgs/nixos-unstable";
         # nur = {
         #   url = "github:nix-community/NUR";
         #   inputs.nixpkgs.follows = "nixpkgs";
@@ -15,11 +16,16 @@
     };
 
     # outputs = inputs @ { self, nixpkgs, home-manager, agenix, ... }:
-    outputs = inputs @ { self, nixpkgs, home-manager, ... }:
+    outputs = inputs @ { self, nixpkgs, home-manager, nixunstable, ... }:
         let
             system = "x86_64-linux";
 
             pkgs = import nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+            };
+
+            upkgs = import nixunstable {
                 inherit system;
                 config.allowUnfree = true;
             };
@@ -31,7 +37,7 @@
                 import ./hosts {
                     inherit (nixpkgs) lib;
                     # inherit inputs system pkgs home-manager agenix;
-                    inherit inputs system pkgs home-manager;
+                    inherit inputs system pkgs home-manager upkgs;
                 }
             );
         };

@@ -1,10 +1,10 @@
 # { lib, inputs, system, home-manager, agenix, ... }:
-{ lib, inputs, system, home-manager, ... }:
+{ lib, inputs, system, home-manager, upkgs, ... }:
 {
     e105-laptop = lib.nixosSystem {
         inherit system;
         # specialArgs = { inherit inputs agenix home-manager; };
-        specialArgs = { inherit inputs home-manager; };
+        specialArgs = { inherit inputs home-manager upkgs; };
         modules = [
             ./work-laptop
             ./configuration.nix

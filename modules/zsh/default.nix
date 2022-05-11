@@ -4,6 +4,10 @@
         enable = true;
         ohMyZsh = {
             enable = true;
+            plugins = [
+                "git"
+            ];
+            # theme = "robbyrussell";
         };
         shellAliases = {
             cat = "bat";
@@ -21,5 +25,6 @@
         shellInit = ''
             eval "$(starship init zsh)"
         '';
+        syntaxHighlighting.enable = true;
     };
 }

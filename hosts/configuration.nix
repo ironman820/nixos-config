@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # { config, lib, pkgs, inputs, agenix, ... }:
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, upkgs, inputs, ... }:
 
 {
   # pkgs.overlays = [ inputs.nur.overlay ];
@@ -18,6 +18,7 @@
   environment = {
     systemPackages = with pkgs; [
       adoptopenjdk-icedtea-web
+      albert
       bat
       exa
       firefox
@@ -42,10 +43,12 @@
       starship
       synology-drive
       tldr
-      ulauncher
       variety
       wget
-      vscode
+      # vscode
+    ] ++
+    [
+      upkgs.vscode
     ];
   };
 
@@ -124,8 +127,6 @@
 
     # };
   }; 
-
-  sound.mediaKeys.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
