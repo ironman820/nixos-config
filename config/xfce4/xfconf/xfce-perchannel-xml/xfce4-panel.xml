@@ -13,15 +13,14 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="18"/>
-        <value type="int" value="17"/>
         <value type="int" value="20"/>
         <value type="int" value="22"/>
         <value type="int" value="19"/>
         <value type="int" value="21"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
-        <value type="int" value="5"/>
         <value type="int" value="6"/>
+        <value type="int" value="5"/>
         <value type="int" value="4"/>
         <value type="int" value="9"/>
         <value type="int" value="10"/>
@@ -128,9 +127,6 @@
       </property>
     </property>
     <property name="plugin-1" type="string" value="whiskermenu"/>
-    <property name="plugin-17" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
     <property name="plugin-18" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
@@ -141,7 +137,7 @@
     </property>
     <property name="plugin-20" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="15657829162.desktop"/>
+        <value type="string" value="16523200761.desktop"/>
       </property>
     </property>
     <property name="plugin-21" type="string" value="launcher">
