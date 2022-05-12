@@ -6,8 +6,8 @@ sudo nixos-rebuild switch --flake .#
 popd
 
 pushd ~
-if [ -f "wallpapers.7z" ]; then
-    7z x wallpapers.7z
-    rm wallpapers.7z
+if [ -f "wallpapers.7z.001" ]; then
+    7z x wallpapers.7z.001
+    rm wallpapers.7z.00*
 fi
 popd
