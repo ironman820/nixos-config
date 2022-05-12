@@ -33,22 +33,21 @@
       libsForQt5.okular
       libsForQt5.qtstyleplugin-kvantum
       libreoffice
-      # microsoft-edge
       nfs-utils
-      # nur.repos.xe.microsoft-edge-dev
       pavucontrol
       pulseaudio # used for pactl, not enabled
       putty
       restic
+      ripgrep
       starship
       synology-drive
       tldr
       variety
       wget
-      # vscode
     ] ++
     [
       upkgs.vscode
+      upkgs.microsoft-edge
     ];
   };
 
