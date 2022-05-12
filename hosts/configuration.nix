@@ -26,7 +26,6 @@
       font-manager
       galculator
       gimp
-      git-crypt
       glances
       gnome.file-roller
       google-chrome
@@ -34,6 +33,7 @@
       libsForQt5.qtstyleplugin-kvantum
       libreoffice
       nfs-utils
+      p7zip
       pavucontrol
       pulseaudio # used for pactl, not enabled
       putty

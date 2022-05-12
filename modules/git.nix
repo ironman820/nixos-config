@@ -1,6 +1,7 @@
 {config, pkgs, ...}:
 {
     environment.systemPackages = with pkgs; [
+        bfg-repo-cleaner
         git-crypt
     ];
     programs.git = {
