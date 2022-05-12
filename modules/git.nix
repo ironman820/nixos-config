@@ -1,8 +1,8 @@
 {config, pkgs, ...}:
 {
     environment.systemPackages = with pkgs; [
-        bfg-repo-cleaner
         git-crypt
+        git-filter-repo
     ];
     programs.git = {
       config = {
