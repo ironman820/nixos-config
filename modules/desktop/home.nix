@@ -16,7 +16,7 @@
             package = pkgs.arc-theme;
         };
         iconTheme = {
-            name = "Tela-red-dark";
+            name = "Tela-dark";
             package = pkgs.tela-icon-theme;
         };
     };

@@ -1,7 +1,12 @@
 {config, lib, pkgs, imputs, ... }:
 
 {
-    environment.systemPackages = [ pkgs.xfce.xfce4_whiskermenu_plugin ];
+    environment.systemPackages = with pkgs.xfce; [
+        xfce4-pulseaudio-plugin
+        xfce4-whiskermenu-plugin
+    ] ++
+    [ pkgs.nixos-icons ];
+    
     services = {
         xserver = {
             enable = true;
@@ -15,7 +20,7 @@
                         package = pkgs.arc-theme;
                     };
                     iconTheme = {
-                        name = "Tela-red-dark";
+                        name = "Tela-dark";
                         package = pkgs.tela-icon-theme;
                     };
                 };
