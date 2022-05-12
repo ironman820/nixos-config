@@ -7,7 +7,7 @@ popd
 
 pushd ~
 if [ -f "wallpapers.7z.001" ]; then
-    7z x wallpapers.7z.001
+    7z x -y wallpapers.7z.001
     rm wallpapers.7z.00*
 fi
 popd

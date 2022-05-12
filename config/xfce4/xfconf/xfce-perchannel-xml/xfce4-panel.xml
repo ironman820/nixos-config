@@ -29,12 +29,12 @@
         <value type="int" value="13"/>
         <value type="int" value="14"/>
       </property>
-      <property name="background-style" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="1"/>
       <property name="background-rgba" type="array">
-        <value type="double" value="0.158667"/>
-        <value type="double" value="0.261433"/>
-        <value type="double" value="0.453333"/>
-        <value type="double" value="0.680000"/>
+        <value type="double" value="0.141176"/>
+        <value type="double" value="0.121569"/>
+        <value type="double" value="0.192157"/>
+        <value type="double" value="0.939502"/>
       </property>
       <property name="autohide-behavior" type="uint" value="1"/>
     </property>
@@ -59,6 +59,7 @@
       </property>
       <property name="icon-size" type="int" value="0"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="..variety-wrapped-wrapped"/>
         <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (74%)"/>
         <value type="string" value="variety"/>
         <value type="string" value="ulauncher"/>

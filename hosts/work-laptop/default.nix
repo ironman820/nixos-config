@@ -3,6 +3,9 @@
 {
     imports = [
         ./hardware-configuration.nix
+        ../../modules/albert
+        ../../modules/desktop
+        ../../modules/variety
         ../../users/royell
     ];
 

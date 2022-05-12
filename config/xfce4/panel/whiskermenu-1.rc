@@ -1,5 +1,5 @@
 favorites=firefox.desktop,xfce4-terminal.desktop,org.xfce.Parole.desktop,galculator.desktop,thunar.desktop,xfce4-taskmanager.desktop,xfce-settings-manager.desktop,pavucontrol.desktop
-recent=code.desktop,blueberry.desktop
+recent=albert.desktop,sqlitebrowser.desktop,code.desktop,blueberry.desktop
 button-title=
 button-icon=distributor-logo-chakra
 button-single-row=false

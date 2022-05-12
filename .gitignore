@@ -1,4 +1,4 @@
 /result
 .vscode
 unlock-key
-flake.lock
+*/**/*.log

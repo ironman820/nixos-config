@@ -9,8 +9,7 @@
   # pkgs.overlays = [ inputs.nur.overlay ];
   imports =
     [
-      ../modules/desktop
-      ../modules/git.nix
+      ../modules/git
       ../modules/zsh
       # ../modules/agenix.nix
     ];
@@ -18,7 +17,6 @@
   environment = {
     systemPackages = with pkgs; [
       adoptopenjdk-icedtea-web
-      albert
       bat
       exa
       firefox
@@ -42,7 +40,7 @@
       starship
       synology-drive
       tldr
-      variety
+      tree
       wget
     ] ++
     [
