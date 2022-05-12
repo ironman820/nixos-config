@@ -15,6 +15,7 @@
                     useUserPackages = true;
                     users.royell = {
                         imports = [(import ./home.nix)] ++
+                        [(import ../modules/desktop/home-novm.nix)] ++
                         [(import ../users/royell/home.nix)];
                     };
                 };

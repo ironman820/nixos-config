@@ -2,6 +2,6 @@
 
 {
     home = {
-        file.".config/wall".source = config.lib.file.mkOutOfStoreSymlink ../themes/wall;
+        file.wallpapers.source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/modules/themes/wall";
     };
 }
