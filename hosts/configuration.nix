@@ -31,6 +31,7 @@
       libsForQt5.qtstyleplugin-kvantum
       libreoffice
       nfs-utils
+      nix-index
       p7zip
       pavucontrol
       pulseaudio # used for pactl, not enabled

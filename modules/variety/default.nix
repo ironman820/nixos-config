@@ -1,6 +1,6 @@
-{config, pkgs, ...}:
+{config, upkgs, ...}:
 {
     environment.systemPackages = [
-        pkgs.variety
+        upkgs.variety
     ];
 }

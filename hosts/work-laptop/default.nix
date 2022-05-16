@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, upkgs, ... }:
 
 {
     imports = [
         ./hardware-configuration.nix
         ../../modules/albert
         ../../modules/desktop
+        # ../../modules/glocom
         ../../modules/variety
         ../../users/royell
     ];

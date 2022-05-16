@@ -1,0 +1,48 @@
+diff --git a/opt/gloCOM/bin/glocom b/opt/gloCOM/bin/glocom
+index bd24cd7..9546ab1 100755
+--- a/opt/gloCOM/bin/glocom
++++ b/opt/gloCOM/bin/glocom
+@@ -1,9 +1,9 @@
+-#/bin/sh
++#!/bin/env sh
+ 
+ APP_NAME="gloCOM"
+ 
+-export QT_PLUGIN_PATH="/opt/gloCOM/lib/plugins"
+-export LD_LIBRARY_PATH="/opt/gloCOM/lib"
++export QT_PLUGIN_PATH="./lib/plugins"
++export LD_LIBRARY_PATH="./lib"
+ 
+ #check if input arguments contain 'glocom://'
+ flag1=`echo $@|awk '{print match($0,"glocom://")}'`;
+@@ -14,25 +14,25 @@ flag4=`echo $@|awk '{print match($0,"callto://")}'`;
+ if [ $flag1 -gt 0 ];then
+         #remove spaces from input arguiments
+         number=`echo "$@" | sed 's/ //g'`
+-        /opt/$APP_NAME/bin/$APP_NAME $number
++        ./bin/$APP_NAME $number
+                 exit 1
+ elif [ $flag2 -gt 0 ];then
+         #remove spaces from input arguiments
+         number=`echo "$@" | sed 's/ //g' | sed 's/tel/glocom/'`
+-        /opt/$APP_NAME/bin/$APP_NAME $number
++        ./bin/$APP_NAME $number
+                 exit 1
+ elif [ $flag3 -gt 0 ];then
+         #remove spaces from input arguiments
+         number=`echo "$@" | sed 's/ //g' | sed 's/sip/glocom/'`
+-        /opt/$APP_NAME/bin/$APP_NAME $number
++        ./bin/$APP_NAME $number
+                 exit 1
+ elif [ $flag4 -gt 0 ];then
+         #remove spaces from input arguiments
+         number=`echo "$@" | sed 's/ //g' | sed 's/callto/glocom/'`
+-        /opt/$APP_NAME/bin/$APP_NAME $number
++        ./bin/$APP_NAME $number
+                 exit 1
+ else
+-        /opt/$APP_NAME/bin/$APP_NAME $1
++        ./bin/$APP_NAME $1
+                 exit $?
+ fi
+ 

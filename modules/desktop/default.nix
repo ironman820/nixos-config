@@ -1,11 +1,14 @@
-{config, lib, pkgs, imputs, ... }:
+{config, lib, pkgs, imputs, upkgs, ... }:
 
 {
     environment.systemPackages = with pkgs.xfce; [
         xfce4-pulseaudio-plugin
         xfce4-whiskermenu-plugin
     ] ++
-    [ pkgs.nixos-icons ];
+    [ 
+        pkgs.lightlocker
+        pkgs.nixos-icons
+    ];
     
     services = {
         xserver = {
