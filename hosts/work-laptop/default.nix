@@ -7,6 +7,7 @@
         ../../modules/desktop
         # ../../modules/glocom
         ../../modules/variety
+        ../../secrets/wireless
         ../../users/royell
     ];
 
