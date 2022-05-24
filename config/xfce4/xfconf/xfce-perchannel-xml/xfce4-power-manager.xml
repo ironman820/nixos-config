@@ -7,5 +7,8 @@
     <property name="show-tray-icon" type="bool" value="false"/>
     <property name="presentation-mode" type="bool" value="false"/>
     <property name="brightness-step-count" type="uint" value="50"/>
+    <property name="lid-action-on-battery" type="uint" value="0"/>
+    <property name="logind-handle-lid-switch" type="bool" value="false"/>
+    <property name="lid-action-on-ac" type="uint" value="0"/>
   </property>
 </channel>
