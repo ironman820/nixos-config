@@ -7,6 +7,7 @@
         ../../modules/desktop
         # ../../modules/glocom
         ../../modules/variety
+        ../../modules/yubikey
         ../../secrets/wireless
         ../../users/royell
     ];
