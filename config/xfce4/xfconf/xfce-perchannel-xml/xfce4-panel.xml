@@ -9,7 +9,7 @@
       <property name="length" type="uint" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="0"/>
-      <property name="size" type="uint" value="34"/>
+      <property name="size" type="uint" value="32"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="1"/>
         <value type="int" value="18"/>
@@ -29,7 +29,7 @@
         <value type="int" value="13"/>
         <value type="int" value="14"/>
       </property>
-      <property name="background-style" type="uint" value="1"/>
+      <property name="background-style" type="uint" value="0"/>
       <property name="background-rgba" type="array">
         <value type="double" value="0.141176"/>
         <value type="double" value="0.121569"/>
@@ -38,6 +38,7 @@
       </property>
       <property name="autohide-behavior" type="uint" value="1"/>
     </property>
+    <property name="dark-mode" type="bool" value="true"/>
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-2" type="string" value="tasklist">
@@ -59,40 +60,29 @@
       </property>
       <property name="icon-size" type="int" value="0"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="albert"/>
+        <value type="string" value="flameshot"/>
         <value type="string" value="..variety-wrapped-wrapped"/>
-        <value type="string" value="wi-fi network connection “@hyatt_wifi” active: @hyatt_wifi (74%)"/>
-        <value type="string" value="variety"/>
-        <value type="string" value="ulauncher"/>
-        <value type="string" value="anydesk"/>
-        <value type="string" value="thunar"/>
-        <value type="string" value="system-config-printer"/>
-        <value type="string" value="blueberry-tray.py"/>
         <value type="string" value="networkmanager applet"/>
       </property>
       <property name="known-items" type="array">
         <value type="string" value="blueman"/>
         <value type="string" value="albert"/>
-        <value type="string" value="cura"/>
-        <value type="string" value="teams-for-linux1"/>
-        <value type="string" value="Microsoft Teams - Preview1"/>
-        <value type="string" value="hp-systray"/>
-        <value type="string" value="cloud-drive-ui"/>
         <value type="string" value="flameshot"/>
-        <value type="string" value="zoom"/>
-        <value type="string" value="Nextcloud"/>
-        <value type="string" value="remmina-icon"/>
-        <value type="string" value="variety"/>
-        <value type="string" value="ulauncher"/>
       </property>
       <property name="hidden-items" type="array">
-        <value type="string" value="zoom"/>
-        <value type="string" value="variety"/>
-        <value type="string" value="ulauncher"/>
+        <value type="string" value="blueman"/>
+        <value type="string" value="albert"/>
+        <value type="string" value="flameshot"/>
       </property>
       <property name="hidden-legacy-items" type="array">
-        <value type="string" value="blueberry-tray.py"/>
-        <value type="string" value="anydesk"/>
+        <value type="string" value="..variety-wrapped-wrapped"/>
+        <value type="string" value="albert"/>
+        <value type="string" value="flameshot"/>
       </property>
+      <property name="symbolic-icons" type="bool" value="false"/>
+      <property name="hide-new-items" type="bool" value="true"/>
+      <property name="single-row" type="bool" value="true"/>
     </property>
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
