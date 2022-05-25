@@ -1,4 +1,4 @@
-{ config, pkgs, upkgs, ... }:
+{ config, pkgs, upkgs, agenix, ... }:
 
 {
     imports = [
@@ -9,6 +9,7 @@
         ../../modules/variety
         ../../modules/yubikey
         ../../secrets/wireless
+        ../../secrets/vpn
         ../../users/royell
     ];
 

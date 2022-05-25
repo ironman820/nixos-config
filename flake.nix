@@ -8,15 +8,14 @@
         #   url = "github:nix-community/NUR";
         #   inputs.nixpkgs.follows = "nixpkgs";
         # };
-        # agenix.url = "github:ryantm/agenix";
+        agenix.url = "github:ryantm/agenix";
         home-manager = {
             url = "github:/nix-community/home-manager/release-21.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
-    # outputs = inputs @ { self, nixpkgs, home-manager, agenix, ... }:
-    outputs = inputs @ { self, nixpkgs, home-manager, nixunstable, ... }:
+    outputs = inputs @ { self, nixpkgs, home-manager, nixunstable, agenix, ... }:
         let
             system = "x86_64-linux";
 
@@ -36,8 +35,7 @@
             nixosConfigurations = (
                 import ./hosts {
                     inherit (nixpkgs) lib;
-                    # inherit inputs system pkgs home-manager agenix;
-                    inherit inputs system pkgs home-manager upkgs;
+                    inherit inputs system pkgs home-manager upkgs agenix;
                 }
             );
         };

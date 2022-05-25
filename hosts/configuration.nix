@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-# { config, lib, pkgs, inputs, agenix, ... }:
-{ config, lib, pkgs, upkgs, inputs, ... }:
+{ config, lib, pkgs, upkgs, inputs, agenix, ... }:
 
 {
   # pkgs.overlays = [ inputs.nur.overlay ];
@@ -11,7 +10,7 @@
     [
       ../modules/git
       ../modules/zsh
-      # ../modules/agenix.nix
+      ../modules/agenix.nix
     ];
 
   environment = {
