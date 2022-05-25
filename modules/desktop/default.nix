@@ -14,7 +14,7 @@
         xserver = {
             enable = true;
 
-            # Enable the XFCE Desktop Environment.
+            # Setup LightDM Greeter
             displayManager.lightdm = {
                 enable = true;
                 greeters.gtk = {
@@ -28,6 +28,7 @@
                     };
                 };
             };
+            # Enable the XFCE Desktop Environment.
             desktopManager.xfce.enable = true;
             layout = "us";
         };
