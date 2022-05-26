@@ -2,6 +2,7 @@
 pkgs.mkShell {
     name = "nixosbuildshell";
     buildInputs = with pkgs; [
+        (callPackage <agenix/pkgs/agenix.nix> {})
         git
         git-crypt
         hello
