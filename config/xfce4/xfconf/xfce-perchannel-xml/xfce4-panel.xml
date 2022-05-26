@@ -83,6 +83,7 @@
       <property name="symbolic-icons" type="bool" value="false"/>
       <property name="hide-new-items" type="bool" value="true"/>
       <property name="single-row" type="bool" value="true"/>
+      <property name="menu-is-primary" type="bool" value="true"/>
     </property>
     <property name="plugin-8" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
