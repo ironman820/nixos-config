@@ -23,6 +23,7 @@
             htop = "glances --percpu";
         };
         shellInit = ''
+            export EDITOR="code --wait"
             eval "$(starship init zsh)"
         '';
         syntaxHighlighting.enable = true;

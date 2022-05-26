@@ -46,6 +46,7 @@
       synology-drive
       tldr
       tree
+      vim
       wget
     ] ++
     [
@@ -107,7 +108,7 @@
     dconf.enable = true;
     java.enable = true;
     mtr.enable = true;
-    vim.defaultEditor = true;
+    # vim.defaultEditor = true;
   };
   
   security = {
