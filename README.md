@@ -40,6 +40,7 @@ You can also install this via the install media in the nix-install repo by doing
 
 - Boot off the install media.
 - Create the partition scheme and mount it to /mnt
+- ***NEED TO UPDATE WITH TEMP FOLDER SETTINGS***
 - Run `nixos-install --flake github:ironman820/nixos-config`
 
 ## sys tool

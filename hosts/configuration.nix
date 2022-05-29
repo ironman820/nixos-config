@@ -114,6 +114,10 @@ in
     java.enable = true;
     mtr.enable = true;
     # vim.defaultEditor = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    }
   };
   
   security = {
