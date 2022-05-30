@@ -5,5 +5,8 @@
         yubico-piv-tool
         yubikey-manager-qt
         yubikey-personalization-gui
+        yubikey-touch-detector
     ];
+
+    services.pcscd.enable = true;
 }

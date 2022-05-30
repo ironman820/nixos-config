@@ -4,22 +4,8 @@
 
 { config, lib, pkgs, upkgs, inputs, agenix, ... }:
 
-{
-  # pkgs.overlays = [ inputs.nur.overlay ];
-  imports =
-    [
-        (import (builtins.fetchTarball {
-            url = "https://github.com/jmackie/nixos-networkmanager-profiles/archive/master.tar.gz";
-            sha256 = "0x18qkwxfzmhbn6cn2da0xn27mxnmiw56qwx3kjvy9ljcar5czvh";
-        }))
-    ] ++ [
-      ../modules/git
-      ../modules/zsh
-      ../modules/agenix.nix
-    ];
-
-  environment = {
-    systemPackages = with pkgs; [
+let
+  syspkgs = with pkgs; [
       adoptopenjdk-icedtea-web
       bat
       exa
@@ -30,6 +16,7 @@
       gimp
       glances
       gnome.file-roller
+      gnupg
       google-chrome
       libsForQt5.okular
       libsForQt5.qtstyleplugin-kvantum
@@ -48,11 +35,29 @@
       tree
       vim
       wget
-    ] ++
-    [
-      upkgs.vscode
-      upkgs.microsoft-edge
     ];
+  unstablepkgs = with upkgs; [
+      vscode
+      microsoft-edge
+    ];
+
+in
+{
+  # pkgs.overlays = [ inputs.nur.overlay ];
+  imports =
+    [
+        (import (builtins.fetchTarball {
+            url = "https://github.com/jmackie/nixos-networkmanager-profiles/archive/master.tar.gz";
+            sha256 = "0x18qkwxfzmhbn6cn2da0xn27mxnmiw56qwx3kjvy9ljcar5czvh";
+        }))
+    ] ++ [
+      ../modules/git
+      ../modules/zsh
+      ../modules/agenix.nix
+    ];
+
+  environment = {
+    systemPackages = syspkgs ++ unstablepkgs;
   };
 
   fonts = {
