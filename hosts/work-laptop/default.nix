@@ -4,7 +4,9 @@
     imports = [
         ./hardware-configuration.nix
         ../../modules/albert
+        ../../modules/browsers
         ../../modules/desktop
+        ../../modules/email
         # ../../modules/glocom
         ../../modules/gpg
         ../../modules/variety
@@ -62,7 +64,6 @@
     networking = {
         hostName = "e105-laptop";
         enableB43Firmware = true;
-        networkmanager.enableStrongSwan = true;
     };
 
     services = {

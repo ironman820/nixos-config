@@ -5,18 +5,43 @@ let
         xfce4-whiskermenu-plugin
     ];
     sysPackages = with pkgs; [
+        adoptopenjdk-icedtea-web
+        firefox
+        flameshot
+        font-manager
+        galculator
+        gimp
+        gnome.file-roller
+        libsForQt5.okular
+        libsForQt5.qtstyleplugin-kvantum
+        libreoffice
         lightlocker
         nixos-icons
+        pavucontrol
+        pulseaudio # used for pactl, not enabled
+        putty
+        synology-drive
+    ];
+
+    unstablePackages = with upkgs; [
+        vscode
     ];
 in
 {
-    environment.systemPackages = xfcePackages ++ sysPackages;
+    environment.systemPackages = xfcePackages ++ sysPackages ++ unstablePackages;
     
     programs.zsh.shellAliases = {
         vim = "code --wait";
     };
 
     services = {
+        gnome.gnome-keyring.enable = true;
+        pipewire = {
+          enable = true;
+          alsa.enable = true;
+          alsa.support32Bit = true;
+          pulse.enable = true;
+        };
         xserver = {
             enable = true;
 

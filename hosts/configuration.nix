@@ -1,47 +1,5 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, lib, pkgs, upkgs, inputs, agenix, ... }:
 
-let
-  syspkgs = with pkgs; [
-      adoptopenjdk-icedtea-web
-      bat
-      exa
-      firefox
-      flameshot
-      font-manager
-      galculator
-      gimp
-      glances
-      gnome.file-roller
-      gnupg
-      google-chrome
-      libsForQt5.okular
-      libsForQt5.qtstyleplugin-kvantum
-      libreoffice
-      nfs-utils
-      nix-index
-      p7zip
-      pavucontrol
-      pulseaudio # used for pactl, not enabled
-      putty
-      restic
-      ripgrep
-      starship
-      synology-drive
-      tldr
-      tree
-      vim
-      wget
-    ];
-  unstablepkgs = with upkgs; [
-      vscode
-      microsoft-edge
-    ];
-
-in
 {
   # pkgs.overlays = [ inputs.nur.overlay ];
   imports =
@@ -56,9 +14,26 @@ in
       ../modules/agenix.nix
     ];
 
-  environment = {
-    systemPackages = syspkgs ++ unstablepkgs;
+  boot = {
+    consoleLogLevel = 3;
   };
+
+  environment.systemPackages = with pkgs; [
+      bat # cat replacement
+      exa # ls replacement
+      glances # preferred htop replacement
+      htop
+      nfs-utils
+      # nix-index
+      p7zip
+      restic
+      ripgrep
+      starship
+      tldr
+      tree
+      vim
+      wget
+    ];
 
   fonts = {
     enableDefaultFonts = true;
@@ -89,16 +64,29 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  boot = {
-    consoleLogLevel = 3;
-  };
-
   networking = {
     firewall.enable = false;
     networkmanager.enable = true;
     useDHCP = false;
   };
 
+  programs = {
+    dconf.enable = true;
+    java.enable = true;
+    mtr.enable = true;
+    # vim.defaultEditor = true;
+  };
+
+  security = {
+    rtkit.enable = true; # Needed for pipewire
+    sudo.wheelNeedsPassword = false;
+  };
+
+  services = {
+    haveged.enable = true;
+    openssh.enable = true;
+  }; 
+  
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
@@ -108,33 +96,6 @@ in
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
-
-  programs = {
-    dconf.enable = true;
-    java.enable = true;
-    mtr.enable = true;
-    # vim.defaultEditor = true;
-  };
-  
-  security = {
-    rtkit.enable = true; # Needed for pipewire
-    sudo.wheelNeedsPassword = false;
-  };
-
-  services = {
-    gnome.gnome-keyring.enable = true;
-    haveged.enable = true;
-    openssh.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
-    # restic.backups = {
-
-    # };
-  }; 
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

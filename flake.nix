@@ -15,7 +15,7 @@
         };
     };
 
-    outputs = inputs @ { self, nixpkgs, home-manager, nixunstable, agenix, ... }:
+    outputs = { self, nixpkgs, home-manager, nixunstable, agenix, ... }:
         let
             system = "x86_64-linux";
 
@@ -35,7 +35,13 @@
             nixosConfigurations = (
                 import ./hosts {
                     inherit (nixpkgs) lib;
-                    inherit inputs system pkgs home-manager upkgs agenix;
+                    inherit system pkgs home-manager upkgs agenix;
+                }
+            );
+            homeManagerConfigurations = (
+                import ./hosts/home.nix {
+                    inherit (nixpkgs) lib;
+                    inherit system pkgs home-manager upkgs agenix;
                 }
             );
         };
