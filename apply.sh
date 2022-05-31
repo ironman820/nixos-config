@@ -12,3 +12,7 @@ if [ -f "wallpapers.7z.001" ]; then
 fi
 chmod 600 .ssh/id_rsa
 popd
+
+pushd ~/personal-gpg
+./personal-gpg/install.sh
+popd
