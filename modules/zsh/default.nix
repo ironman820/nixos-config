@@ -13,6 +13,8 @@
             cat = "bat";
             df = "df -h";
             ducks = "du -chs * | sort -rh | head -11";
+            gpg = "gpg2";
+            htop = "glances --percpu";
             l = "exa -lah";
             la = "exa -lah";
             ll = "exa -lah";
@@ -20,7 +22,6 @@
             lsa = "exa -lah";
             md = "mkdir -p";
             rd = "rmdir";
-            htop = "glances --percpu";
         };
         shellInit = ''
             export EDITOR="code --wait"

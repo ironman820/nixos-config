@@ -6,26 +6,13 @@
         ../../modules/albert
         ../../modules/desktop
         # ../../modules/glocom
+        ../../modules/gpg
         ../../modules/variety
         ../../modules/yubikey
         ../../secrets/wireless
         ../../secrets/vpn
         ../../users/royell
     ];
-
-    # age.secrets."royell.rsa" = {
-    #     file = ../../secrets/home/royell/rsa.age;
-    #     group = "users";
-    #     owner = "royell";
-    #     path = "/home/royell/.ssh/id_rsa";
-    #     symlink = false;
-    # };
-
-    # age.secrets.work-laptop-host-key = {
-    #     file  = ../../secrets/keys/work-laptop/ssh_rsa.age;
-    #     path = "/etc/ssh/ssh_host_rsa_key";
-    #     mode = "0400";
-    # };
 
     boot.loader = {
         efi.canTouchEfiVariables = true;

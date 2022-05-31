@@ -2,7 +2,7 @@
 
 {
     programs.git.config.safe.directory = [
-        "/home/royell/.dotfiles"
+        "/home/royell/dotfiles"
     ];
 
     services.xserver.displayManager.autoLogin = {

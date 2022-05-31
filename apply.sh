@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-pushd ~/.dotfiles
+pushd ~/dotfiles
 sudo nixos-rebuild switch --flake .# --show-trace
 # nix build ".#hmConfig.$USER.activationPackage"
 # result/activate
