@@ -2,6 +2,7 @@
 
 {
     imports = [
+        ../../hosts/home-configuration.nix
         ../../modules/gpg/home.nix
     ];
 

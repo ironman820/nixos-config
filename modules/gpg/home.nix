@@ -8,7 +8,7 @@
             "personal-gpg/install.sh" = {
                 executable = true;
                 text = ''
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 gpg -K --keyid-format=long | grep 9F30DA1A16D74EA7 > /dev/null
 if [ $? != 0 ]; then

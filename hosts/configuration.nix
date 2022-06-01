@@ -1,4 +1,4 @@
-{ config, lib, pkgs, upkgs, inputs, agenix, ... }:
+{ config, lib, pkgs, upkgs, agenix, ... }:
 
 {
   # pkgs.overlays = [ inputs.nur.overlay ];
@@ -59,7 +59,7 @@
       randomizedDelaySec = "1mins";
     };
     package = pkgs.nixFlakes;
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    # registry.nixpkgs.flake = inputs.nixpkgs;
   };
 
   nixpkgs.config.allowUnfree = true;
