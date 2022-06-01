@@ -13,4 +13,7 @@
         homeDirectory = "/home/royell";
         username = "royell";
     };
+    programs.git.extraConfig = {
+        core.editor = "code --wait";
+    };
 }

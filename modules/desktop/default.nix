@@ -23,16 +23,19 @@ let
         synology-drive
     ];
 
-    unstablePackages = with upkgs; [
-        vscode
-    ];
+    # unstablePackages = with upkgs; [
+    #     vscode
+    # ];
 in
 {
-    environment.systemPackages = xfcePackages ++ sysPackages ++ unstablePackages;
+    environment.systemPackages = xfcePackages ++ sysPackages ++
+        [ upkgs.vscode ];
     
     programs.zsh.shellAliases = {
         vim = "code --wait";
     };
+
+    security.rtkit.enable = true; # Needed for pipewire
 
     services = {
         gnome.gnome-keyring.enable = true;

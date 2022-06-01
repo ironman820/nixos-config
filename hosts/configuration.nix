@@ -78,7 +78,6 @@
   };
 
   security = {
-    rtkit.enable = true; # Needed for pipewire
     sudo.wheelNeedsPassword = false;
   };
 

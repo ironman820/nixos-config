@@ -7,7 +7,6 @@
             plugins = [
                 "git"
             ];
-            # theme = "robbyrussell";
         };
         shellAliases = {
             cat = "bat";
@@ -24,7 +23,6 @@
             rd = "rmdir";
         };
         shellInit = ''
-            export EDITOR="code --wait"
             eval "$(starship init zsh)"
         '';
         syntaxHighlighting.enable = true;

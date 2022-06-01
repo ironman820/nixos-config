@@ -4,6 +4,7 @@
     imports = [
         ./hardware-configuration.nix
         ../../modules/albert
+        ../../modules/bluetooth
         ../../modules/browsers
         ../../modules/desktop
         ../../modules/email
@@ -48,7 +49,6 @@
         systemPackages = with pkgs; [
             # audiorelay
             b43FirmwareCutter
-            blueberry
             # cups-pdf
             ddrescue
             ddrescueview
@@ -59,8 +59,6 @@
         ];
     };
 
-    hardware.bluetooth.enable = true;
-
     networking = {
         hostName = "e105-laptop";
         enableB43Firmware = true;
@@ -68,7 +66,6 @@
 
     services = {
         auto-cpufreq.enable = true;
-        blueman.enable = true;
         printing = {
             drivers = with pkgs; [
                 hplipWithPlugin

@@ -5,6 +5,7 @@
         ".config/xfce4/panel".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/xfce4/panel";
         ".config/xfce4/xfconf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/xfce4/xfconf";
     };
+
     gtk = {
         enable = true;
         theme = {
@@ -16,4 +17,8 @@
             package = pkgs.tela-icon-theme;
         };
     };
+
+    programs.zsh.initExtra = ''
+        export EDITOR="code --wait"
+    '';
 }
