@@ -9,17 +9,17 @@
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/nixroot";
-      fsType = "btrfs";
-      options = [ "subvol=@" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
-    };
+  boot.initrd.luks.devices."lvmroot".device = "/dev/disk/by-uuid/062e1411-5336-460a-8691-5341ed7f6f36";
 
-  boot.initrd.luks.devices."nixroot".device = "/dev/disk/by-uuid/96799e6f-7178-43d7-9ca2-12d09ad21c3f";
+  fileSystems."/" =
+    { device = "/dev/disk/by-label/nixos";
+      fsType = "ext4";
+      options = [ "defaults" "noatime" ];
+    };
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-label/NIXBOOT";
@@ -27,21 +27,9 @@
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-label/nixroot";
-      fsType = "btrfs";
-      options = [ "subvol=@home" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
-    };
-
-  fileSystems."/var/cache" =
-    { device = "/dev/disk/by-label/nixroot";
-      fsType = "btrfs";
-      options = [ "subvol=@var-cache" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-label/nixroot";
-      fsType = "btrfs";
-      options = [ "subvol=@var-log" "defaults" "noatime" "autodefrag" "compress=zstd" "ssd" "discard=async" ];
+    { device = "/dev/disk/by-label/nixhome";
+      fsType = "ext4";
+      options = [ "defaults" "noatime" ];
     };
 
   swapDevices =

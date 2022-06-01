@@ -2,6 +2,7 @@
 
 {
     home.file = {
+        ".config/autostart/variety.desktop".source = ./autostart/variety.desktop;
         "wallpapers.7z.001".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/themes/wallpapers.7z.001";
         "wallpapers.7z.002".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/themes/wallpapers.7z.002";
         "wallpapers.7z.003".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/themes/wallpapers.7z.003";

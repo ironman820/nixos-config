@@ -41,7 +41,7 @@
             homeConfigurations = (
                 import ./hosts/home.nix {
                     inherit (nixpkgs) lib;
-                    inherit system home-manager;
+                    inherit system home-manager upkgs;
                 }
             );
         };

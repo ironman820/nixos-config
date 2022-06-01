@@ -60,6 +60,7 @@
       </property>
       <property name="icon-size" type="int" value="0"/>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="blueberry-tray.py"/>
         <value type="string" value="albert"/>
         <value type="string" value="flameshot"/>
         <value type="string" value="..variety-wrapped-wrapped"/>
@@ -76,6 +77,7 @@
         <value type="string" value="flameshot"/>
       </property>
       <property name="hidden-legacy-items" type="array">
+        <value type="string" value="blueberry-tray.py"/>
         <value type="string" value="..variety-wrapped-wrapped"/>
         <value type="string" value="albert"/>
         <value type="string" value="flameshot"/>
