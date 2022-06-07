@@ -8,7 +8,7 @@ let
 
   sysPackages = with pkgs; [
     adoptopenjdk-icedtea-web
-    agenix.defaultPackage.x86_64-linux
+    agenix.agenix
     albert
     # audiorelay
     b43FirmwareCutter
@@ -45,7 +45,7 @@ let
     ripgrep
     sqlitebrowser
     starship
-    synology-drive
+    synology-drive-client
     thunderbird
     tldr
     tree
@@ -79,11 +79,12 @@ in
       url = "https://github.com/jmackie/nixos-networkmanager-profiles/archive/master.tar.gz";
       sha256 = "0x18qkwxfzmhbn6cn2da0xn27mxnmiw56qwx3kjvy9ljcar5czvh";
     }))
+    <agenix/modules/age.nix>
     ./hardware-configuration.nix
     # ./modules/glocom
-    ./secrets/wireless
-    ./secrets/vpn
-    ./users/royell
+    /etc/nixos/secrets/wireless
+    /etc/nixos/secrets/vpn
+    /etc/nixos/users/royell
   ];
 
   boot = {
@@ -101,19 +102,19 @@ in
   environment = {
     etc = {
       "ssh/ssh_host_ed25519_key" = {
-        source = ./secrets/keys/work-laptop/ssh_host_ed25519_key;
+        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key";
         mode = "0400";
       };
-      "ssh/ssh_host_ed25519_key.pub" = {
-        source = ./secrets/keys/work-laptop/ssh_host_ed25519_key.pub;
+      "ssh/ssh_host_ed25519_key/etc/nixospub" = {
+        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key.pub";
         mode = "0444";
       };
       "ssh/ssh_host_rsa_key" = {
-        source = ./secrets/keys/work-laptop/ssh_host_rsa_key;
+        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key";
         mode = "0400";
       };
       "ssh/ssh_host_rsa_key.pub" = {
-        source = ./secrets/keys/work-laptop/ssh_host_rsa_key.pub;
+        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key.pub";
         mode = "0444";
       };
     };
@@ -147,12 +148,10 @@ in
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
-      agenix = import <agenix/modules/age.nix> {
-        config = config.nixpkgs.config;
-      }
+      agenix = import <agenix> {};
       unstable = import <nixos-unstable> {
         config = config.nixpkgs.config;
-      }
+      };
     };
   };
 
