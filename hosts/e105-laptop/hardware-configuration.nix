@@ -13,7 +13,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."lvmroot".device = "/dev/disk/by-uuid/062e1411-5336-460a-8691-5341ed7f6f36";
+  boot.initrd.luks.devices."lvmroot".device = "/dev/disk/by-uuid/97e01204-9064-4b9a-9eb5-05d4fd5612c2";
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";

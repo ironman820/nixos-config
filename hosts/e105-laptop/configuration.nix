@@ -14,7 +14,6 @@ let
     b43FirmwareCutter
     bat # cat replacement
     birdtray
-    blueberry
     # cups-pdf
     ddrescue
     ddrescueview
@@ -49,6 +48,7 @@ let
     thunderbird
     tldr
     tree
+    unstable.vscode
     variety
     ventoy-bin
     vim
@@ -62,7 +62,6 @@ let
   ];
 
   unstablePackages = with pkgs.unstable; [
-    vscode
   ];
 
   xfcePackages = with pkgs.xfce; [
@@ -81,13 +80,15 @@ in
     }))
     <agenix/modules/age.nix>
     ./hardware-configuration.nix
+    <home-manager/nixos>
     # ./modules/glocom
-    /etc/nixos/secrets/wireless
-    /etc/nixos/secrets/vpn
-    /etc/nixos/users/royell
+    INSTALL_ROOT/etc/nixos/secrets/wireless
+    INSTALL_ROOT/etc/nixos/secrets/vpn
+    INSTALL_ROOT/etc/nixos/users/royell
   ];
 
   boot = {
+    consoleLogLevel = 3;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
@@ -96,26 +97,26 @@ in
       };
       timeout = 2;
     };
-    consoleLogLevel = 3;
+    plymouth.enable = true;
   };
 
   environment = {
     etc = {
       "ssh/ssh_host_ed25519_key" = {
-        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key";
         mode = "0400";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key";
       };
-      "ssh/ssh_host_ed25519_key/etc/nixospub" = {
-        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key.pub";
+      "ssh/ssh_host_ed25519_key.pub" = {
         mode = "0444";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key.pub";
       };
       "ssh/ssh_host_rsa_key" = {
-        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key";
         mode = "0400";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key";
       };
       "ssh/ssh_host_rsa_key.pub" = {
-        source = "/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key.pub";
         mode = "0444";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key.pub";
       };
     };
     systemPackages = qt5Packages ++ sysPackages ++ unstablePackages ++ xfcePackages;
@@ -130,6 +131,11 @@ in
     ];
   };
 
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+  };
+
   # Flake Ready!
   nix = {
     autoOptimiseStore = true;
@@ -140,7 +146,7 @@ in
     gc = {
       automatic = true;
       dates = "daily";
-      options = "--delete-older-than 7d";
+      options = "--delete-older-than 30d";
       randomizedDelaySec = "1mins";
     };
   };
