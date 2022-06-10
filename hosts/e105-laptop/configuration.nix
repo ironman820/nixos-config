@@ -90,13 +90,6 @@ in
   boot = {
     cleanTmpDir = true;
     consoleLogLevel = 3;
-    initrd.luks = {
-      devices."lvmroot" = {
-        fallbackToPassword = true;
-        yubikey.twoFactor = false;
-      };
-      yubikeySupport = true;
-    };
     loader = {
       efi.canTouchEfiVariables = true;
       # generationsDir.enable = true;

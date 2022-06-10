@@ -8,12 +8,26 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd = {
+    availableKernelModules = [ "ahci" "xhci_pci" "usb_storage" "sd_mod" "sdhci_acpi" ];
+    kernelModules = [ "dm-snapshot" ];
+    luks = {
+      devices."lvmroot" = {
+        device = "/dev/disk/by-uuid/97e01204-9064-4b9a-9eb5-05d4fd5612c2";
+        fallbackToPassword = true;
+        preLVM = true;
+        yubikey = {
+          slot = 2;
+          twoFactor = false;
+          storage.device = "/dev/disk/by-label/NIXBOOT";
+        };
+      };
+      yubikeySupport = true;
+    };
+  };
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."lvmroot".device = "/dev/disk/by-uuid/97e01204-9064-4b9a-9eb5-05d4fd5612c2";
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/nixos";
