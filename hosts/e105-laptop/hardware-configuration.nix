@@ -15,11 +15,13 @@
       devices."lvmroot" = {
         device = "/dev/disk/by-uuid/97e01204-9064-4b9a-9eb5-05d4fd5612c2";
         fallbackToPassword = true;
-        preLVM = true;
         yubikey = {
           slot = 2;
           twoFactor = false;
-          storage.device = "/dev/sda1";
+          # storage = {
+          #   device = "/dev/disk/by-label/NIXBOOT";
+          #   path = "/crypt-storage/default";
+          # };
         };
       };
       yubikeySupport = true;

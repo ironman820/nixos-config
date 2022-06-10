@@ -30,6 +30,7 @@ let
     google-chrome
     htop
     libreoffice
+    libykclient
     lightlocker
     microsoft-edge
     nfs-utils
