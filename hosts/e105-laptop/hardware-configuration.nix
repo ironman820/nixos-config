@@ -19,7 +19,7 @@
         yubikey = {
           slot = 2;
           twoFactor = false;
-          storage.device = "/dev/disk/by-uuid/57B4-02A3";
+          storage.device = "/dev/sda1";
         };
       };
       yubikeySupport = true;
