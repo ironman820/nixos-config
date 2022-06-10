@@ -88,9 +88,18 @@ in
   ];
 
   boot = {
+    cleanTmpDir = true;
     consoleLogLevel = 3;
+    initrd.luks = {
+      devices."lvmroot" = {
+        fallbackToPassword = true;
+        yubikey.twoFactor = false;
+      };
+      yubikeySupport = true;
+    };
     loader = {
       efi.canTouchEfiVariables = true;
+      generationsDir.enable = true;
       systemd-boot = {
         configurationLimit = 10;
         enable = true;
@@ -119,6 +128,7 @@ in
         source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key.pub";
       };
     };
+    shells = [ pkgs.zsh ];
     systemPackages = qt5Packages ++ sysPackages ++ unstablePackages ++ xfcePackages;
   };
 
@@ -171,7 +181,10 @@ in
 
   programs = {
     dconf.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      lfs.enable = true;
+    };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -179,6 +192,8 @@ in
     };
     java.enable = true;
     mtr.enable = true;
+    vim.defaultEditor = true;
+    wireshark.enable = true;
     zsh = {
       enable = true;
       ohMyZsh = {
@@ -208,12 +223,12 @@ in
       '';
       syntaxHighlighting.enable = true;
     };
-    vim.defaultEditor = true;
   };
 
   security = {
     rtkit.enable = true; # needed for pipewire
     sudo.wheelNeedsPassword = false;
+    pam.yubico.enable = true;
   };
 
   services = {
@@ -261,6 +276,7 @@ in
         touchpad.scrollMethod = "twofinger";
       };
     };
+    yubikey-agent.enable = true;
   };
 
   # Set your time zone.
@@ -282,4 +298,3 @@ in
   system.stateVersion = "22.05"; # Did you read the comment?
 
 }
-
