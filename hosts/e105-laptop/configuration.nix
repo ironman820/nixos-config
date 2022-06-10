@@ -99,7 +99,7 @@ in
     };
     loader = {
       efi.canTouchEfiVariables = true;
-      generationsDir.enable = true;
+      # generationsDir.enable = true;
       systemd-boot = {
         configurationLimit = 10;
         enable = true;
@@ -228,7 +228,7 @@ in
   security = {
     rtkit.enable = true; # needed for pipewire
     sudo.wheelNeedsPassword = false;
-    pam.yubico.enable = true;
+    # pam.yubico.enable = true;
   };
 
   services = {
