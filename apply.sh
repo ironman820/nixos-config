@@ -9,6 +9,6 @@ sudo cp hosts/$(cat .host)/hardware-configuration.nix ./
 
 sudo sed -i 's/INSTALL_ROOT//' configuration.nix
 sudo sed -i 's/INSTALL_ROOT//' hardware-configuration.nix
-sudo sed -i 's/HOST_NAME/$(cat .host)/' hardware-configuration.nix
+sudo sed -i 's/HOST_NAME/'"$(cat .host)"'/' hardware-configuration.nix
 
 sudo nixos-rebuild switch --show-trace
