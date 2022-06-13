@@ -21,6 +21,7 @@
       "networkmanager"
       "pipewire"
       "royell"
+      "uucp"
       "wheel"
       "wireshark"
     ];
