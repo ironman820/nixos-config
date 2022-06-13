@@ -18,10 +18,10 @@
     hashedPassword = "$6$SX8GpVRXT5qcxUe/$cJxPVZVVz8nZ8NhUeK42h6SEG25BsYPCcjXKU6yOnjhDut2eMy9tGzCBOJLj42vELT194gXUeLdJdFYLM25FL1";
     extraGroups = [
       "autologin"
+      "dialout"
       "networkmanager"
       "pipewire"
       "royell"
-      "uucp"
       "wheel"
       "wireshark"
     ];
