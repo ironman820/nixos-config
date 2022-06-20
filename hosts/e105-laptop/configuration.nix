@@ -73,7 +73,7 @@ in
     # ./modules/glocom
     INSTALL_ROOT/etc/nixos/secrets/wireless
     INSTALL_ROOT/etc/nixos/secrets/vpn
-    INSTALL_ROOT/etc/nixos/users/ironman
+    INSTALL_ROOT/etc/nixos/users/niceastman
     INSTALL_ROOT/etc/nixos/users/royell
   ];
 
