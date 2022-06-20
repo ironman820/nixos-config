@@ -11,7 +11,7 @@
     };
     imports = [
       INSTALL_ROOT/etc/nixos/users/core.nix
-    ]
+    ];
     programs = {
       home-manager.enable = true;
       zsh.shellAliases = {

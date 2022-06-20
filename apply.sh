@@ -2,6 +2,7 @@
 
 cd /etc/nixos
 
+sudo git restore .
 sudo git pull
 
 sudo cp hosts/$(cat .host)/configuration.nix ./
