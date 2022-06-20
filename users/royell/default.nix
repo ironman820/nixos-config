@@ -1,38 +1,26 @@
 {pkgs, ...}:
 
 {
-  services.xserver.displayManager.autoLogin = {
-    enable = true;
-    user = "royell";
-  };
-
   home-manager.users.royell = {
     home = {
       homeDirectory = "/home/royell";
-      packages = with pkgs; [
-        albert
-        bat # cat replacement
-        birdtray
-        exa # ls replacement
-        flameshot
-        gimp
-        glances # preferred htop replacement
-        synology-drive-client
-        thunderbird
-        unstable.vscode
-        variety
-        ventoy-bin
-        virt-viewer
-      ];
+      # packages = with pkgs; [
+      # ];
       stateVersion = "22.05";
       username = "royell";
     };
+    imports = [
+      INSTALL_ROOT/etc/nixos/users/core.nix
+    ]
     programs = {
       home-manager.enable = true;
-    };
-    xsession = {
-      enable = true;
-      windowManager.command = "_";
+      zsh.shellAliases = {
+        l = "ls -lah";
+        la = "ls -lah";
+        ll = "ls -lah";
+        ls = "ls -a";
+        lsa = "ls -lah";
+      };
     };
   };
 

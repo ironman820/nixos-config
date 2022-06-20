@@ -15,6 +15,7 @@ let
     ddrescue
     ddrescueview
     firefox
+    flameshot
     font-manager
     galculator
     git-crypt
@@ -40,6 +41,7 @@ let
     starship
     tree
     vim
+    virt-viewer
     yubioath-desktop
     yubico-piv-tool
     yubikey-manager-qt
@@ -71,6 +73,7 @@ in
     # ./modules/glocom
     INSTALL_ROOT/etc/nixos/secrets/wireless
     INSTALL_ROOT/etc/nixos/secrets/vpn
+    INSTALL_ROOT/etc/nixos/users/ironman
     INSTALL_ROOT/etc/nixos/users/royell
   ];
 
@@ -176,31 +179,26 @@ in
     wireshark.enable = true;
     zsh = {
       enable = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = [
-          "git"
-        ];
-      };
+      enableGlobalCompInit = false;
+      setOptions = [
+        "autocd"
+        "HIST_IGNORE_DUPS"
+        "SHARE_HISTORY"
+        "HIST_FCNTL_LOCK"
+      ];
       shellAliases = {
-        cat = "bat";
         df = "df -h";
         ducks = "du -chs * | sort -rh | head -11";
         gpg = "gpg2";
         grep = "rg";
-        htop = "glances --percpu";
-        l = "exa -lah";
-        la = "exa -lah";
-        ll = "exa -lah";
-        ls = "exa -a";
-        lsa = "exa -lah";
+        l = "ls -lah";
+        la = "ls -lah";
+        ll = "ls -lah";
+        ls = "ls -a";
+        lsa = "ls -lah";
         md = "mkdir -p";
         rd = "rmdir";
-        vim = "code --wait";
       };
-      shellInit = ''
-        eval "$(starship init zsh)"
-      '';
       syntaxHighlighting.enable = true;
     };
   };
