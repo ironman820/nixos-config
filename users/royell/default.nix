@@ -7,10 +7,33 @@
   };
 
   home-manager.users.royell = {
-    home.username = "royell";
-    home.homeDirectory = "/home/royell";
-    home.stateVersion = "22.05";
-    programs.home-manager.enable = true;
+    home = {
+      homeDirectory = "/home/royell";
+      packages = with pkgs; [
+        albert
+        bat # cat replacement
+        birdtray
+        exa # ls replacement
+        flameshot
+        gimp
+        glances # preferred htop replacement
+        synology-drive-client
+        thunderbird
+        unstable.vscode
+        variety
+        ventoy-bin
+        virt-viewer
+      ];
+      stateVersion = "22.05";
+      username = "royell";
+    };
+    programs = {
+      home-manager.enable = true;
+    };
+    xsession = {
+      enable = true;
+      windowManager.command = "_";
+    };
   };
 
   users.users.royell = {

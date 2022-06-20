@@ -9,23 +9,16 @@ let
   sysPackages = with pkgs; [
     adoptopenjdk-icedtea-web
     agenix.agenix
-    albert
     # audiorelay
     b43FirmwareCutter
-    bat # cat replacement
-    birdtray
     # cups-pdf
     ddrescue
     ddrescueview
-    exa # ls replacement
     firefox
-    flameshot
     font-manager
     galculator
-    gimp
     git-crypt
     git-filter-repo
-    glances # preferred htop replacement
     gnome.file-roller
     google-chrome
     htop
@@ -45,15 +38,8 @@ let
     ripgrep
     sqlitebrowser
     starship
-    synology-drive-client
-    thunderbird
-    tldr
     tree
-    unstable.vscode
-    variety
-    ventoy-bin
     vim
-    virt-viewer
     yubioath-desktop
     yubico-piv-tool
     yubikey-manager-qt
@@ -243,8 +229,6 @@ in
           hplipWithPlugin
       ];
       enable = true;
-    };
-    xserver = {
     };
     xserver = {
       enable = true;
