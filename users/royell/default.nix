@@ -6,11 +6,10 @@
       homeDirectory = "/home/royell";
       # packages = with pkgs; [
       # ];
-      stateVersion = "22.05";
       username = "royell";
     };
     imports = [
-      INSTALL_ROOT/etc/nixos/users/core.nix
+      INSTALL_ROOT/etc/nixos/users/home-manager-core.nix
     ];
     programs = {
       home-manager.enable = true;

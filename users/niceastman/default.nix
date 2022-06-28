@@ -1,44 +1,18 @@
 
-{pkgs, ...}:
+{ pkgs, ...}:
 
 {
-  home-manager.users.niceastman = {
+  home-manager.users.niceastman = { config, ... }: {
     home = {
       homeDirectory = "/home/niceastman";
-      packages = with pkgs; [
-        albert
-        bat # cat replacement
-        birdtray
-        exa # ls replacement
-        gimp
-        glances # preferred htop replacement
-        synology-drive-client
-        thunderbird
-        unstable.vscode
-        variety
-        ventoy-bin
-      ];
-      stateVersion = "22.05";
       username = "niceastman";
     };
+
     imports = [
-      INSTALL_ROOT/etc/nixos/users/core.nix
+      INSTALL_ROOT/etc/nixos/users/home-manager-core.nix
+      INSTALL_ROOT/etc/nixos/users/home-manager-personal.nix
     ];
-    programs = {
-      home-manager.enable = true;
-      zsh = {
-        shellAliases = {
-          cat = "bat";
-          htop = "glances --percpu";
-          l = "exa -lah";
-          la = "exa -lah";
-          ll = "exa -lah";
-          ls = "exa -a";
-          lsa = "exa -lah";
-          vim = "code --wait";
-        };
-      };
-    };
+
   };
 
   users.users.niceastman = {
