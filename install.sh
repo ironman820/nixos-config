@@ -69,7 +69,7 @@ else
     fi
   fi
 
-  read -ps "Pausing for a moment."
+  read -sp "Pausing for a moment."
 
   sudo nixos-generate-config --root /mnt
 
