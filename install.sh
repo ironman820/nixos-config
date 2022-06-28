@@ -20,7 +20,7 @@ else
   echo "Cloning the repo."
 
   if [[ ! -d "/mnt/etc/nixos" ]]; then
-    sudo git clone -b system --depth 1 https://github.com/ironman820/nixos-config.git ~/nixos 2>&1 > /dev/null
+    git clone -b system --depth 1 https://github.com/ironman820/nixos-config.git ~/nixos 2>&1 > /dev/null
     cd /nixos
   else
     cd /mnt/etc/nixos
@@ -50,7 +50,7 @@ else
       git crypt unlock
       if file -bL --mime-encoding secrets/secrets.nix | grep -iq binary ; then
         for FILE in `find .git-crypt/keys/default -type f`; do
-          if gpg --pinentry-mode=loopback --decrypt < $FILE | sudo tee unlock-key > /dev/null 2>&1; then
+          if gpg --pinentry-mode=loopback --decrypt < $FILE > /dev/null 2>&1; then
             git crypt unlock unlock-key
             rm -f unlock-key
           fi
