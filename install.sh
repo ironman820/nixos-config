@@ -95,5 +95,5 @@ else
   sudo export TMPDIR=/mnt/tmpstore/tmp
   sudo mount -t overlay overlay -olowerdir=/nix/store,upperdir=/mnt/tmpstore/store,workdir=/mnt/tmpstore/work /nix/store
 
-  sudo nixos-install
+  sudo nixos-install --no-root-passwd
 fi
