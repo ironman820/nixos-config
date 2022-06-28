@@ -1,14 +1,34 @@
 #!/usr/bin/env bash
-pushd ~/dotfiles > /dev/null
-sudo nixos-rebuild switch --flake .#
-# nix build ".#hmConfig.$USER.activationPackage"
-# result/activate
-home-manager switch --flake .#royell
-popd > /dev/null
+
+cd /etc/nixos
+
+hostname=$(cat .host)
+
+sudo git restore .
+sudo git branch | grep -iq user ;
+if [ $? != 0 ]; then
+    sudo git fetch --unshallow
+    sudo git remote set-branches origin '*'
+    sudo git fetch -v
+fi
+sudo git checkout user
+sudo git pull
+
+sudo cp hosts/$hostname/configuration.nix ./
+sudo cp hosts/$hostname/hardware-configuration.nix ./
+
+sudo sed -i 's/INSTALL_ROOT//' configuration.nix
+sudo sed -i 's/INSTALL_ROOT//' hardware-configuration.nix
+sudo sed -i 's/INSTALL_ROOT//' hosts/core.nix
+sudo sed -i 's/INSTALL_ROOT//' hosts/laptop.nix
+sudo sed -i 's/INSTALL_ROOT//' users/ironman/default.nix
+sudo sed -i 's/INSTALL_ROOT//' users/niceastman/default.nix
+sudo sed -i 's/INSTALL_ROOT//' users/royell/default.nix
+sudo sed -i 's/HOST_NAME/'"$hostname"'/' hardware-configuration.nix
+
+sudo nixos-rebuild switch
 
 cd ~
-
-pushd ~ > /dev/null
 if [ -f ~/.walls-installed ]; then
     echo "Wallpapers flagged as installed, skipping extraction."
 else
@@ -18,13 +38,6 @@ else
     touch ~/.walls-installed
 fi
 chmod 600 .ssh/id_rsa
-popd > /dev/null
 
 cd ~/personal-gpg
-
-pushd ~/personal-gpg > /dev/null
-# chmod +x install.sh
 ./install.sh
-popd > /dev/null
-
-cd ~/dotfiles

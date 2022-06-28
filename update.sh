@@ -1,4 +1,2 @@
 #!/bin/sh
-pushd ~/dotfiles
-nix flake update
-popd
+sudo nixos-rebuild switch --upgrade

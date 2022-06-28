@@ -2,3 +2,7 @@
 .vscode
 unlock-key
 */**/*.log
+./configuration.nix
+./hardware-configuration.nix
+fixes.sh
+.host
