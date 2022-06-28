@@ -21,7 +21,7 @@ else
 
   if [[ ! -d "/mnt/etc/nixos" ]]; then
     git clone -b system --depth 1 https://github.com/ironman820/nixos-config.git ~/nixos 2>&1 > /dev/null
-    cd /nixos
+    cd ~/nixos
   else
     cd /mnt/etc/nixos
     sudo git restore . 2>&1 > /dev/null
@@ -61,12 +61,15 @@ else
           exit
         fi
       fi
+      cd ~/nixos-config
       sudo mv ~/nixos /mnt/etc/
     else
       echo "Your private GPG key did not import properly, please try again."
       exit
     fi
   fi
+
+  read -ps "Pausing for a moment."
 
   sudo nixos-generate-config --root /mnt
 
