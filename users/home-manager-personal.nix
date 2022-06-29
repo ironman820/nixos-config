@@ -20,6 +20,7 @@
       ".config/autostart/variety.desktop".source = "${config.home.homeDirectory}/dotfiles/config/startup/variety.desktop";
       ".config/xfce4/panel".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/xfce4/panel";
       ".config/xfce4/xfconf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/xfce4/xfconf";
+      ".ssh/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/secrets/home/global/ssh/config";
       ".ssh/known_hosts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/secrets/home/global/ssh/known_hosts";
       ".ssh/known_hosts.old".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/secrets/home/global/ssh/known_hosts.old";
       "personal-gpg/install.sh" = {
