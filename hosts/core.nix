@@ -32,6 +32,7 @@ let
     libykclient
     lightlocker
     lutris
+    meld
     microsoft-edge
     nfs-utils
     nix-index
