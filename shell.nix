@@ -15,7 +15,8 @@ pkgs.mkShell {
     shellHook = ''
         export GPG_TTY=$(tty)
         unset DISPLAY
-        echo "pinentry-program $(which pinentry)\nallow-loopback-pinentry" > /root/.gnupg/gpg-agent.conf
+        echo "pinentry-program $(which pinentry)" > ~/.gnupg/gpg-agent.conf
+        echo "allow-loopback-pinentry" >> ~/.gnupg/gpg-agent.conf
         gpg-connect-agent reloadagent /bye
         # hello | figlet
 

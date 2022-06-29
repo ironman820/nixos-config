@@ -2,4 +2,8 @@
 .vscode
 unlock-key
 */**/*.log
-flake.lock
+./configuration.nix
+./hardware-configuration.nix
+fixes.sh
+.host
+.updated

@@ -69,11 +69,11 @@ else
     fi
   fi
 
-  read -sp "Pausing for a moment."
-
   sudo nixos-generate-config --root /mnt
 
   cd /mnt/etc/nixos
+
+  nix-shell --command "echo 'Dropping to shell so you can check hardware-configuration.nix'; return"
 
   if [[ ! -f ".host" ]]; then
     echo "What is the hostname of the system we are installing?"
