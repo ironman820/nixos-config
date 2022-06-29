@@ -15,7 +15,6 @@ sudo git checkout user
 sudo git pull
 
 sudo cp hosts/$hostname/configuration.nix ./
-sudo cp hosts/$hostname/hardware-configuration.nix ./
 
 sudo sed -i 's/INSTALL_ROOT//' configuration.nix
 sudo sed -i 's/INSTALL_ROOT//' hardware-configuration.nix

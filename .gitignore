@@ -6,3 +6,4 @@ unlock-key
 ./hardware-configuration.nix
 fixes.sh
 .host
+.updated
