@@ -16,6 +16,7 @@
     file = {
       ".config/albert".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/albert";
       ".config/autostart/albert.desktop".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/startup/albert.desktop";
+      ".config/autostart/flameshot.desktop".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/startup/flameshot.desktop";
       ".config/autostart/variety.desktop".source = "${config.home.homeDirectory}/dotfiles/config/startup/variety.desktop";
       ".config/xfce4/panel".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/xfce4/panel";
       ".config/xfce4/xfconf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/xfce4/xfconf";
