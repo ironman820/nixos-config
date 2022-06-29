@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
 
+if [[ ! -f ".updated" ]]; then
+  echo "Adding and updating Nix Channels"
+  sudo nix-channel --add https://nixos.org/channels/nixos-22.05 nixos 2>&1 > /dev/null
+  sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable 2>&1 > /dev/null
+  sudo nix-channel --add https://github.com/ryantm/agenix/archive/main.tar.gz agenix 2>&1 > /dev/null
+  sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz home-manager
+  sudo nix-channel --update 2>&1 > /dev/null
+  touch .updated
+  echo "Finished adding channels."
+fi
+
 cd /etc/nixos
 
 hostname=$(cat .host)
