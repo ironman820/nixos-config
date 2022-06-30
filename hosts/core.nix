@@ -44,6 +44,7 @@ let
     pavucontrol
     pulseaudio # used for pactl, not enabled
     putty
+    pv
     restic
     ripgrep
     sqlitebrowser
