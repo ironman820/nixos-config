@@ -187,6 +187,7 @@ in
         ls = "ls -a";
         lsa = "ls -lah";
         md = "mkdir -p";
+        pv = "pv -pte";
         rd = "rmdir";
       };
       syntaxHighlighting.enable = true;
