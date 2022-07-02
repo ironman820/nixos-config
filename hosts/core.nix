@@ -116,6 +116,8 @@ in
     ];
   };
 
+  hardware.pulseaudio.enable = false;
+
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
