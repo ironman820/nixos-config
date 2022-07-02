@@ -30,7 +30,7 @@ let
     htop
     libreoffice
     libykclient
-    lightlocker
+    # lightlocker
     lutris
     makemkv
     meld
