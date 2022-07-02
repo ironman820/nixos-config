@@ -218,19 +218,22 @@ in
       enable = true;
       # Setup LightDM Greeter
       displayManager = {
-        defaultSession = "xfce";
-        lightdm = {
+        # defaultSession = "xfce";
+        # lightdm = {
+        #   enable = true;
+        #   greeters.gtk = {
+        #     theme = {
+        #       name = "Arc-Dark";
+        #       package = pkgs.arc-theme;
+        #     };
+        #     iconTheme = {
+        #       name = "Tela-dark";
+        #       package = pkgs.tela-icon-theme;
+        #     };
+        #   };
+        # };
+        sddm = {
           enable = true;
-          greeters.gtk = {
-            theme = {
-              name = "Arc-Dark";
-              package = pkgs.arc-theme;
-            };
-            iconTheme = {
-              name = "Tela-dark";
-              package = pkgs.tela-icon-theme;
-            };
-          };
         };
       };
       # Enable the XFCE Desktop Environment.
