@@ -68,7 +68,7 @@ in
     cinnamon.enable = true;
     lxqt.enable = true;
     # mate.enable = true;
-    pantheon.enable = true;
+    # pantheon.enable = true;
     # plasma5.enable = true;
   };
 }
