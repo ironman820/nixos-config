@@ -64,9 +64,4 @@ in
   networking = {
     hostName = "ironman-laptop";
   };
-  services.xserver.desktopManager = {
-    # mate.enable = true;
-    # pantheon.enable = true;
-    plasma5.enable = true;
-  };
 }

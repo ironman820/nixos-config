@@ -163,7 +163,7 @@ in
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gtk2";
+      pinentryFlavor = "qt";
     };
     java.enable = true;
     mtr.enable = true;
@@ -216,28 +216,13 @@ in
     };
     xserver = {
       enable = true;
-      # Setup LightDM Greeter
       displayManager = {
         # defaultSession = "xfce";
-        # lightdm = {
-        #   enable = true;
-        #   greeters.gtk = {
-        #     theme = {
-        #       name = "Arc-Dark";
-        #       package = pkgs.arc-theme;
-        #     };
-        #     iconTheme = {
-        #       name = "Tela-dark";
-        #       package = pkgs.tela-icon-theme;
-        #     };
-        #   };
-        # };
         sddm = {
           enable = true;
         };
       };
-      # Enable the XFCE Desktop Environment.
-      desktopManager.xfce.enable = true;
+      desktopManager.plasma5.enable = true;
       layout = "us";
     };
     yubikey-agent.enable = true;
