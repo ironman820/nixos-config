@@ -203,7 +203,6 @@ in
 
   services = {
     auto-cpufreq.enable = true;
-    gnome.gnome-keyring.enable = true;
     haveged.enable = true;
     openssh.enable = true;
     pcscd.enable = true; # smart card library for Yubikey access
@@ -216,7 +215,6 @@ in
     xserver = {
       enable = true;
       displayManager = {
-        # defaultSession = "xfce";
         sddm = {
           enable = true;
         };
