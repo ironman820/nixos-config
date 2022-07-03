@@ -61,4 +61,6 @@ in
   networking = {
     hostName = "ironman-laptop";
   };
+
+  virtualisation.docker.enable = true;
 }
