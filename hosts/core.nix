@@ -67,11 +67,6 @@ let
         vscode
   ];
 
-  xfcePackages = with pkgs.xfce; [
-    xfce4-pulseaudio-plugin
-    xfce4-whiskermenu-plugin
-  ];
-
 in
 
 {
@@ -98,12 +93,12 @@ in
       };
       timeout = 2;
     };
-    plymouth.enable = true;
+    # plymouth.enable = true;
   };
 
   environment = {
     shells = [ pkgs.zsh ];
-    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages ++ xfcePackages;
+    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages;
   };
 
   fonts = {

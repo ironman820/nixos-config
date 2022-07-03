@@ -1,16 +1,16 @@
 { pkgs, config, ... }:
 {
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Arc-Dark";
-      package = pkgs.arc-theme;
-    };
-    iconTheme = {
-      name = "Tela-dark";
-      package = pkgs.tela-icon-theme;
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   theme = {
+  #     name = "Arc-Dark";
+  #     package = pkgs.arc-theme;
+  #   };
+  #   iconTheme = {
+  #     name = "Tela-dark";
+  #     package = pkgs.tela-icon-theme;
+  #   };
+  # };
 
   home = {
     file = {

@@ -10,9 +10,6 @@ let
   unstablePackages = with pkgs.unstable; [
   ];
 
-  xfcePackages = with pkgs.xfce; [
-  ];
-
 in
 
 {
@@ -58,7 +55,7 @@ in
         source = "INSTALL_ROOT/etc/nixos/secrets/keys/ironman-laptop/ssh_host_ecdsa_key.pub";
       };
     };
-    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages ++ xfcePackages;
+    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages;
   };
 
   networking = {
