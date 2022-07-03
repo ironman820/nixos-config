@@ -2,6 +2,7 @@
 
 let
   qt5Packages = with pkgs.libsForQt5; [
+    ark
     qtstyleplugin-kvantum
   ];
 
@@ -24,7 +25,6 @@ let
     git-crypt
     git-filter-repo
     glances # preferred htop replacement
-    gnome.file-roller
     google-chrome
     htop
     libreoffice
@@ -41,6 +41,7 @@ let
     nodejs
     p7zip
     pavucontrol
+    poetry
     pulseaudio # used for pactl, not enabled
     putty
     pv
@@ -51,7 +52,6 @@ let
     synology-drive-client
     thunderbird
     tree
-    variety
     ventoy-bin
     vim
     virt-viewer
