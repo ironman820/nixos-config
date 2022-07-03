@@ -153,6 +153,9 @@ in
     git = {
       enable = true;
       lfs.enable = true;
+      config = {
+        pull.rebase = true;
+      };
     };
     gnupg.agent = {
       enable = true;
