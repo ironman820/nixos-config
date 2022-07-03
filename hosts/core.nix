@@ -2,7 +2,6 @@
 
 let
   qt5Packages = with pkgs.libsForQt5; [
-    okular
     qtstyleplugin-kvantum
   ];
 
