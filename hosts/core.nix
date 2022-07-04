@@ -29,10 +29,10 @@ let
     git-filter-repo
     glances # preferred htop replacement
     google-chrome
-    helm
     hplip
     htop
     kubectl
+    kubernetes-helm-wrapped
     libreoffice
     libykclient
     # lightlocker
