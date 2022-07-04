@@ -210,6 +210,14 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    printing = {
+      drivers = with pkgs; [
+        gutenprint
+        hplip
+      ];
+      enable = true;
+      startWhenNeeded = true;
+    };
     xserver = {
       enable = true;
       displayManager = {
