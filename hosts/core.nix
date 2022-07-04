@@ -29,6 +29,7 @@ let
     git-filter-repo
     glances # preferred htop replacement
     google-chrome
+    helm
     hplip
     htop
     kubectl
