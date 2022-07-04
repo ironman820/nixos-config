@@ -1,23 +1,9 @@
 { pkgs, config, ... }:
 {
-  # gtk = {
-  #   enable = true;
-  #   theme = {
-  #     name = "Arc-Dark";
-  #     package = pkgs.arc-theme;
-  #   };
-  #   iconTheme = {
-  #     name = "Tela-dark";
-  #     package = pkgs.tela-icon-theme;
-  #   };
-  # };
-
   home = {
     file = {
       ".config/albert".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/albert";
       ".ssh/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/secrets/home/global/ssh/config";
-      ".ssh/known_hosts".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/secrets/home/global/ssh/known_hosts";
-      ".ssh/known_hosts.old".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/secrets/home/global/ssh/known_hosts.old";
       "personal-gpg/install.sh" = {
         executable = true;
         text = ''
@@ -65,7 +51,7 @@ echo "Finished"
       lfs.enable = true;
       signing = {
         key = "9F30DA1A16D74EA7";
-        signByDefault = true;
+        # signByDefault = true;
       };
       userEmail = "29488820+ironman820@users.noreply.github.com";
       userName = "Nicholas Eastman";
