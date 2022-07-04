@@ -12,7 +12,9 @@ let
     albert
     # audiorelay
     bat # cat replacement
+    bind
     birdtray
+    busybox
     # cups-pdf
     ddrescue
     ddrescueview
@@ -216,7 +218,7 @@ in
         hplip
       ];
       enable = true;
-      startWhenNeeded = true;
+      # startWhenNeeded = true;
     };
     xserver = {
       enable = true;
