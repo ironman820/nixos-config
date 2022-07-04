@@ -31,6 +31,7 @@ let
     google-chrome
     hplip
     htop
+    kubectl
     libreoffice
     libykclient
     # lightlocker
