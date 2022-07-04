@@ -4,6 +4,7 @@ let
   qt5Packages = with pkgs.libsForQt5; [
     ark
     qtstyleplugin-kvantum
+    skanlite
   ];
 
   sysPackages = with pkgs; [
@@ -112,7 +113,10 @@ in
     ];
   };
 
-  hardware.pulseaudio.enable = false;
+  hardware = {
+    pulseaudio.enable = false;
+    sane.enable = true;
+  };
 
   home-manager = {
     useUserPackages = true;
@@ -218,8 +222,8 @@ in
         hplip
       ];
       enable = true;
-      # startWhenNeeded = true;
     };
+    saned.enable = true;
     xserver = {
       enable = true;
       displayManager = {
