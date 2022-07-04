@@ -15,7 +15,7 @@ let
     bat # cat replacement
     bind
     birdtray
-    busybox
+    # busybox
     # cups-pdf
     ddrescue
     ddrescueview
