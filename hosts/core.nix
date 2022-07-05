@@ -28,9 +28,7 @@ let
     git-crypt
     git-filter-repo
     glances # preferred htop replacement
-    gnome.simple-scan
     google-chrome
-    hplipWithPlugin
     htop
     kubectl
     kubernetes-helm-wrapped
@@ -63,7 +61,6 @@ let
     vim
     virt-viewer
     wget
-    xsane
     yubioath-desktop
     yubico-piv-tool
     yubikey-manager-qt
