@@ -26,8 +26,10 @@
     extraGroups = [
       "autologin"
       "dialout"
+      "lp"
       "networkmanager"
       "pipewire"
+      "scanner"
       "niceastman"
       "wheel"
       "wireshark"
