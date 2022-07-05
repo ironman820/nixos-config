@@ -30,7 +30,7 @@ let
     glances # preferred htop replacement
     gnome.simple-scan
     google-chrome
-    hplip
+    hplipWithPlugin
     htop
     kubectl
     kubernetes-helm-wrapped
