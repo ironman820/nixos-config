@@ -63,6 +63,7 @@ let
     vim
     virt-viewer
     wget
+    xsane
     yubioath-desktop
     yubico-piv-tool
     yubikey-manager-qt
