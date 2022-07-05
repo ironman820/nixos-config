@@ -123,7 +123,7 @@ in
     sane = {
       enable = true;
       extraBackends = [
-        pkgs.hplipWithPlugins
+        pkgs.hplipWithPlugin
       ];
     };
   };
