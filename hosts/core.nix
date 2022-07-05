@@ -217,6 +217,10 @@ in
 
   services = {
     auto-cpufreq.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
     haveged.enable = true;
     openssh.enable = true;
     pcscd.enable = true; # smart card library for Yubikey access
