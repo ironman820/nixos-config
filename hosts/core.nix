@@ -30,7 +30,7 @@ let
     glances # preferred htop replacement
     gnome.simple-scan
     google-chrome
-    hplipWithPlugin
+    hplip
     htop
     kubectl
     kubernetes-helm-wrapped
@@ -120,7 +120,12 @@ in
 
   hardware = {
     pulseaudio.enable = false;
-    sane.enable = true;
+    sane = {
+      enable = true;
+      extraBackends = [
+        pkgs.hplipWithPlugins
+      ];
+    };
   };
 
   home-manager = {
