@@ -28,6 +28,7 @@ let
     git-crypt
     git-filter-repo
     glances # preferred htop replacement
+    gnome.simple-scan
     google-chrome
     htop
     kubectl

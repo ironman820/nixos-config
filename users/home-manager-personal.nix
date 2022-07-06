@@ -3,6 +3,9 @@
   home = {
     file = {
       ".config/albert".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/albert";
+      ".gnupg/scdaemon.conf".text = ''
+disable-ccid
+      '';
       ".ssh/config".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/secrets/home/global/ssh/config";
       "personal-gpg/install.sh" = {
         executable = true;
