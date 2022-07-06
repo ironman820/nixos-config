@@ -85,6 +85,7 @@ in
     <agenix/modules/age.nix>
     INSTALL_ROOT/etc/nixos/hardware-configuration.nix
     <home-manager/nixos>
+    INSTALL_ROOT/etc/nixos/modules/scanners/sane-extra-config.nix
   ];
 
   boot = {
@@ -120,8 +121,9 @@ in
     pulseaudio.enable = false;
     sane = {
       enable = true;
-      extraBackends = [
-        pkgs.hplipWithPlugin
+      extraBackends = with pkgs; [
+        hplipWithPlugin
+        sane-airscan
       ];
     };
   };
