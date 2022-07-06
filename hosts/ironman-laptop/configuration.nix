@@ -17,6 +17,7 @@ in
   imports = [
     INSTALL_ROOT/etc/nixos/hosts/core.nix
     INSTALL_ROOT/etc/nixos/hosts/laptop.nix
+    INSTALL_ROOT/etc/nixos/hosts/personal.nix
     INSTALL_ROOT/etc/nixos/users/ironman
   ];
 

@@ -37,7 +37,6 @@ let
     libykclient
     # lightlocker
     lutris
-    makemkv
     meld
     microsoft-edge
     nfs-utils
