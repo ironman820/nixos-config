@@ -2,8 +2,9 @@
 
 let
   qt5Packages = with pkgs.libsForQt5; [
-    okular
+    ark
     qtstyleplugin-kvantum
+    skanlite
   ];
 
   sysPackages = with pkgs; [
@@ -12,7 +13,9 @@ let
     albert
     # audiorelay
     bat # cat replacement
+    bind
     birdtray
+    # busybox
     # cups-pdf
     ddrescue
     ddrescueview
@@ -25,13 +28,17 @@ let
     git-crypt
     git-filter-repo
     glances # preferred htop replacement
-    gnome.file-roller
+    gnome.simple-scan
     google-chrome
+    googleearth-pro
     htop
+    kubectl
+    kubernetes-helm-wrapped
     libreoffice
     libykclient
-    lightlocker
+    # lightlocker
     lutris
+    meld
     microsoft-edge
     nfs-utils
     nix-index
@@ -40,8 +47,10 @@ let
     nodejs
     p7zip
     pavucontrol
+    poetry
     pulseaudio # used for pactl, not enabled
     putty
+    pv
     restic
     ripgrep
     sqlitebrowser
@@ -49,7 +58,6 @@ let
     synology-drive-client
     thunderbird
     tree
-    variety
     ventoy-bin
     vim
     virt-viewer
@@ -65,11 +73,6 @@ let
         vscode
   ];
 
-  xfcePackages = with pkgs.xfce; [
-    xfce4-pulseaudio-plugin
-    xfce4-whiskermenu-plugin
-  ];
-
 in
 
 {
@@ -82,6 +85,7 @@ in
     <agenix/modules/age.nix>
     INSTALL_ROOT/etc/nixos/hardware-configuration.nix
     <home-manager/nixos>
+    INSTALL_ROOT/etc/nixos/modules/scanners/sane-extra-config.nix
   ];
 
   boot = {
@@ -96,12 +100,12 @@ in
       };
       timeout = 2;
     };
-    plymouth.enable = true;
+    # plymouth.enable = true;
   };
 
   environment = {
     shells = [ pkgs.zsh ];
-    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages ++ xfcePackages;
+    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages;
   };
 
   fonts = {
@@ -111,6 +115,17 @@ in
       nerdfonts
       open-sans
     ];
+  };
+
+  hardware = {
+    pulseaudio.enable = false;
+    sane = {
+      enable = true;
+      extraBackends = with pkgs; [
+        hplipWithPlugin
+        sane-airscan
+      ];
+    };
   };
 
   home-manager = {
@@ -141,6 +156,9 @@ in
         config = config.nixpkgs.config;
       };
     };
+    permittedInsecurePackages = [
+      "googleearth-pro-7.3.4.8248"
+    ];
   };
 
   networking = {
@@ -154,11 +172,14 @@ in
     git = {
       enable = true;
       lfs.enable = true;
+      config = {
+        pull.rebase = true;
+      };
     };
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gtk2";
+      pinentryFlavor = "qt";
     };
     java.enable = true;
     mtr.enable = true;
@@ -184,6 +205,7 @@ in
         ls = "ls -a";
         lsa = "ls -lah";
         md = "mkdir -p";
+        pv = "pv -pte";
         rd = "rmdir";
       };
       syntaxHighlighting.enable = true;
@@ -198,7 +220,10 @@ in
 
   services = {
     auto-cpufreq.enable = true;
-    gnome.gnome-keyring.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns = true;
+    };
     haveged.enable = true;
     openssh.enable = true;
     pcscd.enable = true; # smart card library for Yubikey access
@@ -208,24 +233,22 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    printing = {
+      drivers = with pkgs; [
+        gutenprint
+        hplip
+      ];
+      enable = true;
+    };
+    saned.enable = true;
     xserver = {
       enable = true;
-      # Setup LightDM Greeter
-      displayManager.lightdm = {
-        enable = true;
-        greeters.gtk = {
-          theme = {
-            name = "Arc-Dark";
-            package = pkgs.arc-theme;
-          };
-          iconTheme = {
-            name = "Tela-dark";
-            package = pkgs.tela-icon-theme;
-          };
+      displayManager = {
+        sddm = {
+          enable = true;
         };
       };
-      # Enable the XFCE Desktop Environment.
-      desktopManager.xfce.enable = true;
+      desktopManager.plasma5.enable = true;
       layout = "us";
     };
     yubikey-agent.enable = true;

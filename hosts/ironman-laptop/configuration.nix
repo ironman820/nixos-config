@@ -10,9 +10,6 @@ let
   unstablePackages = with pkgs.unstable; [
   ];
 
-  xfcePackages = with pkgs.xfce; [
-  ];
-
 in
 
 {
@@ -20,6 +17,7 @@ in
   imports = [
     INSTALL_ROOT/etc/nixos/hosts/core.nix
     INSTALL_ROOT/etc/nixos/hosts/laptop.nix
+    INSTALL_ROOT/etc/nixos/hosts/personal.nix
     INSTALL_ROOT/etc/nixos/users/ironman
   ];
 
@@ -58,10 +56,12 @@ in
         source = "INSTALL_ROOT/etc/nixos/secrets/keys/ironman-laptop/ssh_host_ecdsa_key.pub";
       };
     };
-    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages ++ xfcePackages;
+    systemPackages = qt5Packages ++ sysPackages ++ unstablePackages;
   };
 
   networking = {
     hostName = "ironman-laptop";
   };
+
+  virtualisation.docker.enable = true;
 }
