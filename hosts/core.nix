@@ -48,7 +48,7 @@ let
     pulseaudio # used for pactl, not enabled
     putty
     pv
-    python3full
+    python3Full
     restic
     ripgrep
     sqlitebrowser
