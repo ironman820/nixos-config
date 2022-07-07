@@ -24,24 +24,24 @@ in
   ];
 
   environment = {
-    # etc = {
-    #   "ssh/ssh_host_ed25519_key" = {
-    #     mode = "0400";
-    #     source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key";
-    #   };
-    #   "ssh/ssh_host_ed25519_key.pub" = {
-    #     mode = "0444";
-    #     source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_ed25519_key.pub";
-    #   };
-    #   "ssh/ssh_host_rsa_key" = {
-    #     mode = "0400";
-    #     source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key";
-    #   };
-    #   "ssh/ssh_host_rsa_key.pub" = {
-    #     mode = "0444";
-    #     source = "INSTALL_ROOT/etc/nixos/secrets/keys/work-laptop/ssh_host_rsa_key.pub";
-    #   };
-    # };
+    etc = {
+      "ssh/ssh_host_ed25519_key" = {
+        mode = "0400";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/e105-pc/ssh_host_ed25519_key";
+      };
+      "ssh/ssh_host_ed25519_key.pub" = {
+        mode = "0444";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/e105-pc/ssh_host_ed25519_key.pub";
+      };
+      "ssh/ssh_host_rsa_key" = {
+        mode = "0400";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/e105-pc/ssh_host_rsa_key";
+      };
+      "ssh/ssh_host_rsa_key.pub" = {
+        mode = "0444";
+        source = "INSTALL_ROOT/etc/nixos/secrets/keys/e105-pc/ssh_host_rsa_key.pub";
+      };
+    };
     systemPackages = qt5Packages ++ sysPackages ++ unstablePackages ++ xfcePackages;
   };
   
