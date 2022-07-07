@@ -54,7 +54,7 @@ echo "Finished"
       lfs.enable = true;
       signing = {
         key = "9F30DA1A16D74EA7";
-        # signByDefault = true;
+        signByDefault = true;
       };
       userEmail = "29488820+ironman820@users.noreply.github.com";
       userName = "Nicholas Eastman";
