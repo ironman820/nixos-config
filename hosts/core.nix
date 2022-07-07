@@ -4,7 +4,6 @@ let
   qt5Packages = with pkgs.libsForQt5; [
     ark
     qtstyleplugin-kvantum
-    skanlite
   ];
 
   sysPackages = with pkgs; [
@@ -15,7 +14,6 @@ let
     bat # cat replacement
     bind
     birdtray
-    # busybox
     # cups-pdf
     ddrescue
     ddrescueview
@@ -36,7 +34,6 @@ let
     kubernetes-helm-wrapped
     libreoffice
     libykclient
-    # lightlocker
     lutris
     meld
     microsoft-edge
@@ -51,6 +48,7 @@ let
     pulseaudio # used for pactl, not enabled
     putty
     pv
+    python3full
     restic
     ripgrep
     sqlitebrowser
@@ -70,7 +68,7 @@ let
   ];
 
   unstablePackages = with pkgs.unstable; [
-        vscode
+    vscode
   ];
 
 in
