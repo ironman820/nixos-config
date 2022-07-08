@@ -3,6 +3,12 @@
   home = {
     file = {
       ".config/albert".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/config/albert";
+      ".config/kitty/kitty.conf".text = ''
+font_family FiraCode Nerd Font Mono
+bold_font Fira Code Bold Nerd Font Complete Mono
+italic_font Fira Code Light Nerd Font Complete Mono
+bold_italic_font Fira Code Medium Nerd Font Complete Mono
+      '';
       ".gnupg/scdaemon.conf".text = ''
 disable-ccid
       '';
