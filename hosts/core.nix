@@ -95,9 +95,9 @@ in
     consoleLogLevel = 3;
     loader = {
       efi.canTouchEfiVariables = true;
-      generationsDir.enable = true;
       systemd-boot = {
         configurationLimit = 10;
+        consoleMode = "auto";
         enable = true;
       };
       timeout = 2;
