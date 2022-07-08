@@ -60,6 +60,7 @@ let
     ventoy-bin
     vim
     virt-viewer
+    vlc
     wget
     yubioath-desktop
     yubico-piv-tool
