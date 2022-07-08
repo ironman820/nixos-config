@@ -30,8 +30,6 @@ let
     google-chrome
     googleearth-pro
     htop
-    kitty
-    kitty-themes
     kubectl
     kubernetes-helm-wrapped
     libreoffice
@@ -70,6 +68,8 @@ let
   ];
 
   unstablePackages = with pkgs.unstable; [
+    kitty
+    kitty-themes
     vscode
   ];
 
