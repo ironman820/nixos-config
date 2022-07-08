@@ -30,6 +30,8 @@ let
     google-chrome
     googleearth-pro
     htop
+    kitty
+    kitty-themes
     kubectl
     kubernetes-helm-wrapped
     libreoffice
