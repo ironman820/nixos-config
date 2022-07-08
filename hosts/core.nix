@@ -95,14 +95,14 @@ in
     consoleLogLevel = 3;
     loader = {
       efi.canTouchEfiVariables = true;
-      # generationsDir.enable = true;
+      generationsDir.enable = true;
       systemd-boot = {
         configurationLimit = 10;
         enable = true;
       };
       timeout = 2;
     };
-    # plymouth.enable = true;
+    plymouth.enable = true;
   };
 
   environment = {
