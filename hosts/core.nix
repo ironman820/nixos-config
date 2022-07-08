@@ -29,6 +29,7 @@ let
     gnome.simple-scan
     google-chrome
     googleearth-pro
+    haruna
     htop
     kubectl
     kubernetes-helm-wrapped
