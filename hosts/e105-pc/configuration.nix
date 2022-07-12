@@ -5,6 +5,7 @@ let
   ];
 
   sysPackages = with pkgs; [
+    teams
   ];
 
   unstablePackages = with pkgs.unstable; [
