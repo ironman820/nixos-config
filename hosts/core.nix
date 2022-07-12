@@ -50,6 +50,7 @@ let
     putty
     pv
     python3Full
+    qgis
     restic
     ripgrep
     sqlitebrowser
