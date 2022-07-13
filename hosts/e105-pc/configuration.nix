@@ -5,6 +5,7 @@ let
   ];
 
   sysPackages = with pkgs; [
+    qgis
     teams
   ];
 

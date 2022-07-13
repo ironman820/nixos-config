@@ -31,6 +31,7 @@ let
     googleearth-pro
     haruna
     htop
+    jre8
     kubectl
     kubernetes-helm-wrapped
     libreoffice
@@ -50,7 +51,6 @@ let
     putty
     pv
     python3Full
-    qgis
     restic
     ripgrep
     sqlitebrowser
