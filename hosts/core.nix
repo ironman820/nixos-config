@@ -260,6 +260,14 @@ in
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
+  virtualisation = {
+    docker = {
+      enable = true;
+      enableOnBoot = false;
+    };
+    spiceUSBRedirection.enable = true;
+  };
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {

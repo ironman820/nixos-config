@@ -25,6 +25,7 @@
     extraGroups = [
       "autologin"
       "dialout"
+      "docker"
       "lp"
       "networkmanager"
       "pipewire"
