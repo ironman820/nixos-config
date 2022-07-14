@@ -59,6 +59,7 @@ let
     synology-drive-client
     thunderbird
     tree
+    unixODBC
     ventoy-bin
     vim
     virt-viewer
