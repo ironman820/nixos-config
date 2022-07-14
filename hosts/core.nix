@@ -73,8 +73,6 @@ let
   ];
 
   unstablePackages = with pkgs.unstable; [
-    kitty
-    kitty-themes
     vscode
   ];
 
