@@ -11,6 +11,8 @@ if [[ ! -f ".updated" ]]; then
   echo "Finished adding channels."
 fi
 
+rm -f ~/.config/fontconfig/conf.d/10-hm-fonts.conf
+
 cd /etc/nixos
 
 hostname=$(cat .host)

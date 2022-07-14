@@ -64,6 +64,7 @@ let
     vim
     virt-viewer
     vlc
+    vscode
     wget
     yubioath-desktop
     yubico-piv-tool
@@ -73,7 +74,6 @@ let
   ];
 
   unstablePackages = with pkgs.unstable; [
-    vscode
   ];
 
 in
@@ -151,17 +151,23 @@ in
     };
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    packageOverrides = pkgs: {
-      agenix = import <agenix> {};
-      unstable = import <nixos-unstable> {
-        config = config.nixpkgs.config;
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      packageOverrides = pkgs: {
+        agenix = import <agenix> {};
+        unstable = import <nixos-unstable> {
+          config = config.nixpkgs.config;
+        };
+        vscode = pkgs.callPackage INSTALL_ROOT/etc/nixos/modules/vscode/vscode.nix {};
       };
+      permittedInsecurePackages = [
+        "googleearth-pro-7.3.4.8248"
+      ];
     };
-    permittedInsecurePackages = [
-      "googleearth-pro-7.3.4.8248"
-    ];
+    # overlays = [
+    #   (import INSTALL_ROOT/etc/nixos/overlays/vscode)
+    # ];
   };
 
   networking = {
