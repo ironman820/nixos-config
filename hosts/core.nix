@@ -50,6 +50,7 @@ let
     pulseaudio # used for pactl, not enabled
     putty
     pv
+    python39Packages.ntlm-auth
     python3Full
     restic
     ripgrep
