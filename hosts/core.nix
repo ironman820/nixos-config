@@ -14,6 +14,7 @@ let
     bat # cat replacement
     bind
     birdtray
+    bottles
     # cups-pdf
     ddrescue
     ddrescueview
@@ -36,7 +37,6 @@ let
     kubernetes-helm-wrapped
     libreoffice
     libykclient
-    lutris
     meld
     microsoft-edge
     nfs-utils
