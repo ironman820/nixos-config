@@ -9,7 +9,6 @@ let
   sysPackages = with pkgs; [
     adoptopenjdk-icedtea-web
     agenix.agenix
-    albert
     # audiorelay
     bat # cat replacement
     bind
