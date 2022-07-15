@@ -33,6 +33,7 @@ let
     haruna
     htop
     jre8
+    kde-gtk-config
     kubectl
     kubernetes-helm-wrapped
     libreoffice
