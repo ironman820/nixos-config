@@ -4,6 +4,7 @@ let
   qt5Packages = with pkgs.libsForQt5; [
     ark
     qtstyleplugin-kvantum
+    sddm-kcm
   ];
 
   sysPackages = with pkgs; [
