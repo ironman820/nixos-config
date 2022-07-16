@@ -3,6 +3,7 @@
 let
   qt5Packages = with pkgs.libsForQt5; [
     ark
+    bismuth
     qtstyleplugin-kvantum
     sddm-kcm
   ];
@@ -27,6 +28,7 @@ let
     git-crypt
     git-filter-repo
     glances # preferred htop replacement
+    gnome.seahorse
     gnome.simple-scan
     google-chrome
     googleearth-pro
