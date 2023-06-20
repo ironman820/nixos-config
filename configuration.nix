@@ -8,37 +8,19 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./host.nix
       ./users.nix
     ];
-
-  # Use the systemd-boot EFI boot loader.
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    # grub = {
-    #   efiSupport = true;
-    #   enable = true;
-    #   gfxpayloadEfi = "keep";
-    # };
-    systemd-boot.enable = true;
-  };
 
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     gnome-photos
   ];
 
-  networking.hostName = "ironman-laptop"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -65,8 +47,6 @@
     };
   };
 
-  # services.xserver.xkbOptions = "eurosign:e,caps:escape";
-
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -74,13 +54,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = (with pkgs; [
-    distrobox
     git
     gnome-extension-manager
     gnome.gnome-tweaks
-    # podman
-    podman-compose
-    qt6.full
     vim
     wget
   ]) ++ (with pkgs.gnomeExtensions; [
@@ -113,15 +89,9 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
   nixpkgs.config.allowUnfree = true;
-
-  virtualisation.podman.enable = true;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
