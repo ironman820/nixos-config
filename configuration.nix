@@ -57,6 +57,7 @@
     git
     gnome-extension-manager
     gnome.gnome-tweaks
+    qemu_kvm
     vim
     wget
   ]) ++ (with pkgs.gnomeExtensions; [
