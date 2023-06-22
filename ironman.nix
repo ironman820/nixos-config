@@ -4,7 +4,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ironman = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "libvirtd" "podman" ];
     packages = with pkgs; [
       tree
     ];

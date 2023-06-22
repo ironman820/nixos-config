@@ -8,29 +8,89 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./host.nix
       ./users.nix
     ];
 
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-photos
-  ];
+  boot = {
+    kernelParams = [
+      "quiet"
+    ];
+    loader = {
+      efi.canTouchEfiVariables = true;
+      grub = {
+        efiSupport = true;
+        device = "nodev";
+        theme = pkgs.nixos-grub2-theme;
+      };
+      timeout = 2;
+    };
+    plymouth = {
+      enable = true;
+      theme = "nixos-bgrt";
+      themePackages = [
+        pkgs.nixos-bgrt-plymouth
+      ];
+    };
+  };
 
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  # Set your time zone.
-  time.timeZone = "America/Chicago";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  environment = {
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      gnome-photos
+    ];
+
+    systemPackages = (with pkgs; [
+      distrobox
+      git
+      gnome-extension-manager
+      gnome.gnome-tweaks
+      ntfs3g
+      podman-compose
+      vim
+      wget
+    ]) ++ (with pkgs.gnomeExtensions; [
+      appindicator
+      caffeine
+      compact-top-bar
+      lock-keys
+      no-overview
+      pano
+      power-profile-switcher
+      tactile
+      wallpaper-switcher
+      weather-oclock
+    ]);
+  };
+
+  hardware.pulseaudio.enable = true;
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  networking = {
+    firewall.enable = false;
+    networkmanager.enable = true;
+  };
+
+  nixpkgs.config.allowUnfree = true;
+
+  programs = {
+    dconf.enable = true;
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    mtr.enable = true;
+  };
+
   services = {
     flatpak.enable = true;
+    openssh.enable = true;
+    pcscd.enable = true;
     printing.enable = true;
     xserver = {
       desktopManager.gnome.enable = true;
@@ -47,57 +107,19 @@
     };
   };
 
-  # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = (with pkgs; [
-    git
-    gnome-extension-manager
-    gnome.gnome-tweaks
-    qemu_kvm
-    vim
-    wget
-  ]) ++ (with pkgs.gnomeExtensions; [
-    appindicator
-    caffeine
-    compact-top-bar
-    lock-keys
-    no-overview
-    pano
-    power-profile-switcher
-    tactile
-    tray-icons-reloaded
-    wallpaper-switcher
-    weather-oclock
-  ]);
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs = {
-    dconf.enable = true;
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    mtr.enable = true;
-  };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  networking.firewall.enable = false;
-
-  nixpkgs.config.allowUnfree = true;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
   system.copySystemConfiguration = true;
+
+  time.timeZone = "America/Chicago";
+
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu.package = pkgs.qemu_kvm;
+    };
+    podman.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
